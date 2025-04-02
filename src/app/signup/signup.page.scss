@@ -1,0 +1,160 @@
+
+ion-content
+{  
+    font-family: 'Hobo BT', sans-serif;
+
+    --ion-background-color: rgb(255, 252, 246);  
+    --background: url(../../assets/img/login-bg.png);
+    --background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#border
+{
+    border: 5px solid rgb(232, 155, 99);
+    border-radius: 50px;
+
+    // top right bottom left
+    margin: 5% 3% 3% 2%;
+
+    height: fit-content;
+}
+
+#margined
+{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.ion-padding
+{
+    text-align: center;
+    margin-top: 10%;
+}
+
+h1
+{
+    color: rgb(232, 155, 99);
+    font-size: 3.3em;
+
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+form
+{
+    --ion-background-color: transparent !important;
+}
+
+ion-input
+{
+    --ion-background-color: transparent;
+
+    background-color: rgb(232, 155, 99, 0.3);
+    border-bottom: 3px solid rgb(232, 155, 99);
+    height: 60px;
+    font-family: 'Hobo BT', sans-serif;
+
+    padding-left: 5% !important;
+
+    --color: rgb(216, 109, 33);
+}
+
+ion-label
+{
+    font-family: 'Hobo BT', sans-serif !important;
+    color: rgb(232, 155, 99) !important;
+    margin-bottom: 3% !important;
+    font-size: 1.5em !important;
+}
+
+ion-item
+{
+    --ion-background-color: transparent !important;
+    --background: transparent !important;
+    --ion-background-color: none !important;
+    --background: none !important;
+}
+
+ion-button::part(native) 
+{
+    border-radius: 20px;
+}
+
+.signUp
+{
+    font-family: 'Hobo BT', sans-serif;
+    justify-self: center;
+
+    height: 60px;
+    font-size: 1.2em;
+    --background: rgb(232, 155, 99);
+    --border-radius: 50px;
+    --color: white;
+    --box-shadow: none !important;
+
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+.signUp:active
+{
+    --color: rgb(216, 109, 33);
+}
+
+.upload-placeholder
+{
+    object-fit: cover;
+    border-radius: 50%;
+
+    width: 150px;
+    height: 150px;
+
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid rgb(232, 155, 99);
+}
+
+.photo
+{
+    display: flex;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.remove-btn 
+{
+    background: rgb(232, 155, 99);
+    color: white;
+    font-family: 'Hobo BT', sans-serif;
+    width: 120px;
+    height: 30px;
+    margin-top: 2%;
+    border-radius: 10px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+.remove-btn:active
+{
+    --color: rgb(216, 109, 33);
+}
+
+ion-select
+{
+    background-color: rgb(232, 155, 99, 0.3);
+    border-bottom: 3px solid rgb(232, 155, 99);
+    font-family: 'Hobo BT', sans-serif;
+    padding-left: 3% !important;
+}
+
+ion-select::part(text) 
+{
+    color: rgb(216, 109, 33);
+}
+
+ion-select::part(icon) {
+    color:  rgb(216, 109, 33);
+}
+
+

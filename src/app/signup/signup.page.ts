@@ -3,15 +3,18 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { SupabaseService } from '../supabase.service';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.page.html',
   styleUrls: ['./signup.page.scss'],
   standalone: true,
-  imports: [IonicModule, FormsModule],
+  imports: [IonicModule, FormsModule, CommonModule],
 })
-export class SignupPage {
+export class SignupPage
+{
+
   email: string = '';
   password: string = '';
   firstName: string = '';
@@ -20,9 +23,87 @@ export class SignupPage {
   profilePicture: string = '';
   cookingSkillLevel: string = ''; 
   errorMessage: string = '';
+  imageUrl: string | null = null;
+  imageFile: File | null = null; 
+  imagePreview: string | null = null;
 
   constructor(private supabaseService: SupabaseService, private router: Router) {}
+  
+  // If image has been selected
+  onImageSelected(event: any) 
+  {
+    const file: File = event.target.files[0];
 
+    if (file) 
+      {
+      this.imageFile = file;
+
+      // Preview image
+      const reader = new FileReader();
+      reader.onload = () => {
+      
+      this.imagePreview = reader.result as string;
+      };
+
+      reader.readAsDataURL(file);
+
+      // Upload image
+      this.uploadImage(file);
+    }
+  }
+
+  // Upload image to Supabase
+  async uploadImage(file: File) 
+  {
+    const fileName = `${Date.now()}_${file.name}`;
+    const { data, error } = await this.supabaseService.uploadFileToBucket('avatars', fileName, file);
+
+    if (error) 
+    {
+      console.error('Error uploading image:', error);
+      return;
+    }
+
+    if (!data?.path) 
+    {
+      console.error('No file path returned from upload');
+      return;
+    }
+
+    // Generate URL for image
+    const result = this.supabaseService.getFilePublicUrl('avatars', data.path);
+
+    if (result.error) 
+    {
+      console.error('Error generating public URL:', result.error);
+      return;
+    }
+
+    this.imageUrl = result.publicUrl || null;
+  }
+
+    // Delete the image from Supabase
+    async deleteImage() 
+    {
+      if (!this.imageUrl) return;
+  
+      const fileName = this.imageUrl.split('/').pop();
+  
+      const { error } = await this.supabaseService.deleteFileFromBucket('avatars', fileName || '');
+  
+      if (error) 
+      {
+        console.error('Error deleting image:', error);
+        return;
+      }
+  
+      // Clear all image related stuff
+      this.imageUrl = null;
+      this.imagePreview = null;
+      this.imageFile = null;
+    }
+
+// Sign up
   async signup() 
   {
     try 
@@ -41,7 +122,7 @@ export class SignupPage {
           this.firstName,
           this.lastName,
           this.username,
-          this.profilePicture,
+          this.imageUrl || '',
           this.cookingSkillLevel
         );
         this.router.navigate(['/tabs']);

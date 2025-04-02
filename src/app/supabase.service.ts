@@ -39,6 +39,48 @@ export class SupabaseService
     }
   }
 
+  // Upload pfp to Supabase
+  async uploadFileToBucket(bucket: string, fileName: string, file: File) 
+  {
+    const { data, error } = await this.supabase.storage
+      .from(bucket)
+      .upload(fileName, file, 
+      {
+        cacheControl: '3600',
+        upsert: false,
+      });
+
+    return { data, error };
+  }
+
+  // Get URL of pfp
+  getFilePublicUrl(bucket: string, filePath: string) 
+  {
+    try 
+    {
+      const { data } = this.supabase.storage.from(bucket).getPublicUrl(filePath);
+
+      if (!data) 
+      {
+        console.error('No data returned from getPublicUrl');
+        return { publicUrl: '', error: 'No data returned' };
+      }
+    
+      return { publicUrl: data.publicUrl, error: null };
+    }
+    catch (error) 
+    {
+      console.error('Error getting public URL:', error);
+      return { publicUrl: '', error: (error as Error).message };
+    }
+  }
+
+  async deleteFileFromBucket(bucket: string, fileName: string) 
+  {
+    const { error } = await this.supabase.storage.from(bucket).remove([fileName]);
+    return { error };
+  }
+
   async createProfile(
     userId: string,
     firstName: string,
