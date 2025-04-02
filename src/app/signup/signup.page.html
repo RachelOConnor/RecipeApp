@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Sign Up</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="signup()" #signupForm="ngForm">
+    
+    <!-- First Name -->
+    <ion-item>
+      <ion-label position="floating">First Name</ion-label>
+      <ion-input type="text" [(ngModel)]="firstName" name="firstName" required></ion-input>
+    </ion-item>
+
+    <!-- Last Name -->
+    <ion-item>
+      <ion-label position="floating">Last Name</ion-label>
+      <ion-input type="text" [(ngModel)]="lastName" name="lastName" required></ion-input>
+    </ion-item>
+
+    <!-- Username -->
+    <ion-item>
+      <ion-label position="floating">Username</ion-label>
+      <ion-input type="text" [(ngModel)]="username" name="username" required></ion-input>
+    </ion-item>
+
+    <!-- Profile Picture (Optional) -->
+    <ion-item>
+      <ion-label position="floating">Profile Picture URL</ion-label>
+      <ion-input type="text" [(ngModel)]="profilePicture" name="profilePicture"></ion-input>
+    </ion-item>
+
+    <!-- Cooking Skill Level -->
+    <ion-item>
+      <ion-label position="floating">Cooking Skill Level</ion-label>
+      <ion-select [(ngModel)]="cookingSkillLevel" name="cookingSkillLevel">
+        <ion-select-option value="Beginner">Beginner</ion-select-option>
+        <ion-select-option value="Intermediate">Intermediate</ion-select-option>
+        <ion-select-option value="Advanced">Advanced</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Email -->
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+    </ion-item>
+
+    <!-- Password -->
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" type="submit" [disabled]="!signupForm.valid">Sign Up</ion-button>
+
+    <div *ngIf="errorMessage" style="color: red; padding-top: 10px;">
+      {{ errorMessage }}
+    </div>
+  </form>
+</ion-content>
+
