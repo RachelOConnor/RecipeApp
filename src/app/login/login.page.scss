@@ -1,0 +1,113 @@
+ion-content
+{  
+    font-family: 'Hobo BT', sans-serif;
+
+    --ion-background-color: rgb(255, 252, 246);  
+    --background: url(../../assets/img/login-bg.png);
+    --background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#border
+{
+    border: 5px solid rgb(232, 155, 99);
+    border-radius: 50px;
+
+    // top right bottom left
+    margin: 5% 3% 3% 2%;
+    height: 95%;
+}
+
+#margined
+{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.ion-padding
+{
+    text-align: center;
+    margin-top: 30%;
+}
+
+h1
+{
+    color: rgb(232, 155, 99);
+    font-size: 3.3em;
+
+    margin-bottom: 0;
+}
+
+form
+{
+    --ion-background-color: transparent !important;
+
+    margin-top: 10%;
+}
+
+.login
+{
+    width: 70%;
+    margin-top: 20%;
+    height: 60px;
+    font-size: 1.2em;
+    --background: rgb(232, 155, 99);
+    --border-radius: 50px;
+    --color: white;
+    --box-shadow: none !important;
+}
+.login:active
+{
+    --background: rgb(201, 93, 16);
+}
+
+.signup
+{
+    --background: transparent;
+    --color: rgb(243, 145, 76);
+    --box-shadow: none !important;
+}
+.signup:active
+{
+    --color: rgb(216, 109, 33);
+}
+
+ion-button::part(native) 
+{
+    border-radius: 20px;
+}
+
+ion-button
+{
+    font-family: 'Hobo BT', sans-serif;
+
+    justify-self: center;
+}
+
+ion-input
+{
+    --ion-background-color: transparent;
+
+    background-color: rgb(232, 155, 99, 0.3);
+    border-bottom: 3px solid rgb(232, 155, 99);
+    height: 60px;
+    font-family: 'Hobo BT', sans-serif;
+
+    padding-left: 3% !important;
+}
+
+ion-label
+{
+    font-family: 'Hobo BT', sans-serif !important;
+    color: rgb(232, 155, 99) !important;
+    margin-bottom: 3% !important;
+    font-size: 1.5em !important;
+}
+
+ion-item
+{
+    --ion-background-color: transparent !important;
+    --background: transparent !important;
+    --ion-background-color: none !important;
+    --background: none !important;
+}
