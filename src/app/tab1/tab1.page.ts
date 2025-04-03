@@ -24,7 +24,6 @@ export class Tab1Page implements OnInit {
     this.router.navigate(['/account']);
   }
 
-
   ionViewWillEnter() {
     this.loadRecipes();
   }
@@ -47,7 +46,6 @@ export class Tab1Page implements OnInit {
       this.loadRecipes();
     }
   }
-
 
   getTotalTimeFormatted(recipe: any): string {
     const totalMinutes = Number(recipe.prep_time) + Number(recipe.cook_time);

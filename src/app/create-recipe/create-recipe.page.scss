@@ -1,0 +1,381 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// MOBILE VERSION FIRST //
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ion-content
+{
+    background-size: cover;
+    background-repeat: repeat;
+    --ion-background-color:url(../../assets/img/orange-bg.png);
+
+    font-family: 'Hobo BT', sans-serif;
+}
+
+form
+{
+    --ion-background-color: transparent;
+}
+
+.backButton
+{
+    padding-left: 3%;
+    color: rgb(232, 155, 99);
+    padding-top: 20px;
+}
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// TOP SECTION ///
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+::placeholder 
+{
+    color: rgb(232, 155, 99);
+}
+
+#recipeName:focus
+{
+    border: none;
+}
+
+#author:focus
+{
+    border-bottom: 2px dashed rgb(232, 155, 99);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.title
+{
+    grid-area:text1;
+}
+.by
+{
+    grid-area:text2;
+    margin-right: 15%;
+    margin-left: 2%;
+}
+.photo
+{
+    grid-area:img1;
+    padding-top: 5%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.top-section-container
+{
+    display: grid;
+    grid-template-areas:
+    'text1 text1 img1'
+    'text2 text2 img1';
+
+    margin-left: 10px;
+    margin-right: 10px;
+
+    // top right bottom left
+    padding: 0px 10px 10px 10px;
+
+    font-family: 'Lemon Tuesday', sans-serif;
+}
+
+.author-container
+{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+#author-label
+{
+    font-size: 1.3em;
+}
+
+label
+{
+    color: rgb(232, 155, 99);
+}
+
+#recipeName
+{
+    background-color: transparent;
+    border: none;
+    font-size: 2.8em;
+    color: rgb(232, 155, 99);
+    width: 100%;
+}
+#recipeName:focus
+{
+    outline: none;
+}
+
+#author
+{
+    background-color: transparent;
+    border-bottom: 2px dashed rgb(232, 155, 99);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 100%;
+    color: rgb(232, 155, 99);
+}
+#author:focus
+{
+    outline: none;
+}
+
+
+#dish-pic
+{
+    border: 5px solid rgb(232, 155, 99);
+    border-radius: 10%;
+    background-color: white;
+
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+.remove-btn
+{
+    background: rgb(232, 155, 99);
+    color: white;
+    font-family: 'Hobo BT', sans-serif;
+    width: 120px;
+    height: 30px;
+    margin-top: 5%;
+    border-radius: 10px;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// MID-TOP SECTION ///
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+.text1
+{
+    grid-area:text1;
+    background-color: rgb(232, 155, 99);
+    color: white;
+}
+.text2
+{
+    grid-area:text2;
+    background-color: rgb(232, 155, 99);
+    color: white;
+}
+.text3
+{
+    grid-area:text3;
+    background-color: rgb(232, 155, 99);
+    color: white;
+}
+.box1
+{
+    grid-area:box1;
+    background-color: white;
+}
+.box2
+{
+    grid-area:box2;
+    background-color: white;
+}
+.box3
+{
+    grid-area:box3;
+    background-color: white;
+}
+
+.info-container // OUTER DETAILS
+{
+    display: grid;
+    grid-template-areas:
+    'text1 text2 text3'
+    'box1 box2 box3';
+    padding-top: 10px;
+    font-size: 1.2em;
+    text-align: center;
+
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.info-container > div // INNER DETAILS
+{
+    border: 3px solid rgb(232, 155, 99);
+    padding: 5px;
+
+}
+
+.info-input
+{
+    border: none;
+    width: 100%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    color: rgb(232, 155, 99);
+    text-align: center;
+}
+.info-input:focus
+{
+    outline: none;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// MID-BOTTOM SECTION ///
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+.ingredients
+{
+    color: rgb(232, 155, 99);
+    background-color: white;
+    border: 3px solid rgb(232, 155, 99);
+    border-radius: 10px;
+
+    // top right bottom left
+    padding: 10px 0px 10px 10px;
+    margin-top: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.text-area
+{
+    width: 97%;
+    height: 90px;
+    border: none;
+}
+
+.text-area:focus
+{
+    outline: none;
+}
+
+h2
+{
+    font-size: x-large;
+    margin: 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// BOTTOM SECTION ///
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+.method
+{
+    grid-area:method;
+    background-color: white;
+    color: rgb(232, 155, 99);
+
+    border: 3px solid rgb(232, 155, 99);
+    border-radius: 10px;
+
+    // top right bottom left
+    padding: 10px 0px 10px 10px;
+}
+.method-text
+{
+    width: 97%;
+    height: 450px;
+    border: none;
+}
+.method-text:focus
+{
+    outline: none;
+}
+
+.utensils
+{
+    grid-area:utensils;
+    background-color: white;
+    color: rgb(232, 155, 99);
+
+    border: 3px solid rgb(232, 155, 99);
+    border-radius: 10px;
+
+    // top right bottom left
+    padding: 10px 0px 10px 10px;
+}
+.utensils-text
+{
+    width: 94%;
+    height: 150px;
+    border: none;
+}
+.utensils-text:focus
+{
+    outline: none;
+}
+
+.notes
+{
+    grid-area:notes;
+    background-color: rgb(232, 155, 99);
+    color: white;
+
+    border: 3px solid rgb(232, 155, 99);
+    border-radius: 10px;
+
+    // top right bottom left
+    padding: 10px 0px 10px 10px;
+}
+.notes-text
+{
+    width: 94%;
+    height: 250px;
+    border: none;
+    background-color: transparent;
+}
+.notes-text:focus
+{
+    outline: none;
+}
+
+.bottom-container
+{
+    display: grid;
+    grid-template-areas:
+    'method utensils'
+    'method notes';
+
+    gap: 3px;
+    margin-top: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.submit-button
+{
+    --background: rgb(232, 155, 99) !important;
+    color: white;
+    font-family: 'Hobo BT', sans-serif;
+    font-size: large;
+    width: 50%;
+    margin-top: 5%;
+    justify-self: center;
+    height: 50px;
+    --box-shadow: none !important;
+}
+
+ion-button.submit-button::part(native) {
+    border-radius: 10px !important;
+}
+
+.spacer
+{
+    padding-bottom: 40px;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// WEB VERSION ADJUSTMENTS ///
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+@media screen and (min-width: 800px)
+{
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// TOP SECTION ///
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+
+}

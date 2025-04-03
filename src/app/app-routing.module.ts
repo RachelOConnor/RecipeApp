@@ -5,6 +5,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 // Page imports
 import { LoginPage } from './login/login.page';
 import { SignupPage } from './signup/signup.page';
+import { CreateRecipePage } from './create-recipe/create-recipe.page';
 
 const routes: Routes = [
   {
@@ -25,17 +26,13 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
+  // {
+  //   path: 'create-recipe',
+  //   loadChildren: () => import('./create-recipe/create-recipe.module').then( m => m.CreateRecipePageModule)
+  // },
   {
-    path: 'tabs/tab1',
-    loadChildren: () => import('./tab1/tab1.module').then(m => m.Tab1PageModule),
-  },
-  {
-    path: 'tabs/tab2',
-    loadChildren: () => import('./tab2/tab2.module').then(m => m.Tab2PageModule),
-  },
-  {
-    path: 'tabs/tab3',
-    loadChildren: () => import('./tab3/tab3.module').then(m => m.Tab3PageModule),
+    path: 'create-recipe',
+    component: CreateRecipePage,
   },
 ];
 @NgModule({

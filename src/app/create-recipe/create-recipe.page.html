@@ -1,0 +1,112 @@
+<ion-header [translucent]="true">
+
+</ion-header>
+
+
+<ion-content>
+
+  <div class="backButton" (click)="goBack()">
+    <ion-icon aria-hidden="true" name="arrow-back-outline" style="font-size: 40px;"></ion-icon>
+  </div>
+
+
+    <form (ngSubmit)="createRecipe()">
+
+      <!-- ////////////////////////// TOP SECTION ////////////////////////////////////// -->
+
+
+        <div class="top-section-container">
+
+    <div class="title">
+      <input type="text" [(ngModel)]="recipeName" id="recipeName" name="recipeName" placeholder="Recipe Name">
+    </div>
+
+    <div class="by author-container">
+
+      <div>
+        <label for="author" id="author-label">By:</label>
+      </div>
+
+      <div>
+        <input type="text" [(ngModel)]="author" id="author" name="author">
+      </div>
+
+    </div>
+
+    <div class="photo">
+
+      <input type="file" (change)="onImageSelected($event)" accept="image/*" hidden #fileInput>
+
+      <img id="dish-pic" [src]="imagePreview || '/assets/img/placeholderImg.png'" 
+            (click)="fileInput.click()"
+            class="upload-placeholder"
+            alt="Upload">
+
+        <button *ngIf="imagePreview" (click)="removeImage()" class="remove-btn"><ion-icon name="trash"></ion-icon> Remove Image</button>
+    </div>
+
+
+
+  </div>
+
+
+  <!-- ////////////////////////// MID-TOP SECTION ////////////////////////////////////// -->
+
+
+  <div class="info-container">
+    <div class="text1" >Prep Time</div>
+    <div class="text2">Cook Time</div>
+    <div class="text3">Serves</div>
+
+    <div class="box1">
+      <input type="number" [(ngModel)]="prepTime" name="prepTime" class="info-input" >
+    </div>
+
+    <div class="box2">
+      <input type="number" [(ngModel)]="cookTime" name="cookTime" class="info-input">
+    </div>
+
+    <div class="box3">
+      <input type="number" [(ngModel)]="serves" name="serves" class="info-input">
+    </div>
+  </div>
+
+
+  <!-- ////////////////////////// MID-BOTTOM SECTION ////////////////////////////////////// -->
+
+    <div class="ingredients">
+      <h2>Ingredients</h2>
+      <textarea [(ngModel)]="ingredients" name="ingredients" class="text-area"></textarea>
+    </div>
+  
+    <!-- ////////////////////////// BOTTOM SECTION ////////////////////////////////////// -->
+
+    <div class="bottom-container">
+
+      <div class="method">
+        <h2>Method</h2>
+        <textarea [(ngModel)]="method" name="method" class="method-text"></textarea>
+      </div>
+
+      <div class="utensils">
+        <h2>Utensils</h2>
+        <textarea [(ngModel)]="utensils" name="utensils" class="utensils-text"></textarea>
+      </div>
+
+      <div class="notes">
+        <h2>Notes</h2>
+        <textarea [(ngModel)]="notes" name="notes" class="notes-text"></textarea>
+      </div>
+
+    </div>
+
+    <ion-button expand="full" type="submit" class="submit-button">Create</ion-button>
+
+    </form>
+
+
+    <div class="spacer"></div>
+
+
+</ion-content>
+

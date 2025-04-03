@@ -10,10 +10,7 @@ export class SupabaseService
 {
   private supabase: SupabaseClient;
 
-  constructor(
-    private loadingCtrl: LoadingController,
-    private toastCtrl: ToastController
-  ) 
+  constructor() 
   {
     const supabaseUrl = 'https://mdqsggfygmfryusfsztz.supabase.co';
     const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1kcXNnZ2Z5Z21mcnl1c2ZzenR6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM1NzM5NTEsImV4cCI6MjA1OTE0OTk1MX0.Vhz9Gwp27zRQgeKN54hzd1nY5NWOTp-nc4DkMDdOjZw';
@@ -174,7 +171,6 @@ export class SupabaseService
       return data?.user || null;
     }
 
-
   // Get session for current user
   async getSession() 
   {
@@ -194,8 +190,10 @@ export class SupabaseService
 
   async uploadImage(filePath: string, file: File): Promise<string | null> {
     try {
+      console.log('Uploading file to path:', filePath);
+
       const { data, error } = await this.supabase.storage
-        .from('recipes')  // Ensure 'recipes' is your actual storage bucket name
+        .from('recipes')
         .upload(filePath, file, { upsert: true });
 
   
