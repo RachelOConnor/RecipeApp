@@ -1,6 +1,17 @@
 import { Injectable } from '@angular/core';
-import { LoadingController, ToastController } from '@ionic/angular'
 import { createClient, SupabaseClient, User, Session } from '@supabase/supabase-js';
+import { LoadingController, ToastController } from '@ionic/angular'
+
+
+export interface Profile {
+  id: string,
+  first_name: string,
+  last_name: string,
+  username: string,
+  profile_picture: string,
+  cooking_skill_level: string
+}
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +21,10 @@ export class SupabaseService
 {
   private supabase: SupabaseClient;
 
-  constructor() 
+  constructor(
+    private loadingCtrl: LoadingController,
+    private toastCtrl: ToastController
+  ) 
   {
     const supabaseUrl = 'https://mdqsggfygmfryusfsztz.supabase.co';
     const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1kcXNnZ2Z5Z21mcnl1c2ZzenR6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM1NzM5NTEsImV4cCI6MjA1OTE0OTk1MX0.Vhz9Gwp27zRQgeKN54hzd1nY5NWOTp-nc4DkMDdOjZw';
@@ -19,6 +33,63 @@ export class SupabaseService
 
   get user() {
     return this.supabase.auth.getUser().then(({ data }) => data?.user)
+  }
+
+  async getProfile(): Promise<Profile | null> {
+    try {
+      const user = await this.user;
+      if (!user?.id) {
+        console.error('User ID not found');
+        return null;
+      }
+  
+      const { data, error } = await this.supabase
+        .from('profiles')
+        .select(`
+        id,
+        first_name,
+        last_name,
+        username,
+        profile_picture,
+        cooking_skill_level
+        `)
+        .eq('id', user.id)
+        .single();  // Ensure we get only one profile
+  
+      if (error) {
+        console.error('Error fetching profile:', error.message);
+        return null;
+      }
+  
+      if (!data) {
+        console.warn('No profile data found');
+        return null;
+      }
+  
+      return data as Profile; // Ensure TypeScript treats it correctly
+    } catch (error: any) {
+      console.error('Unexpected error fetching profile:', error.message);
+      return null;
+    }
+  }
+
+  async updateProfile(profile: Profile) {
+    const user = await this.user
+    const update = {
+      ...profile,
+      id: user?.id,
+      updated_at: new Date(),
+    }
+    return this.supabase.from('profiles').upsert(update)
+  }
+
+  createLoader() {
+    return this.loadingCtrl.create()
+  }
+
+  async createNotice(message: string) {
+    const toast = await this.toastCtrl.create({ message, duration: 5000 })
+    await toast.present()
   }
 
   // Sign up

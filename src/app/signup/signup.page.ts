@@ -14,7 +14,6 @@ import { CommonModule } from '@angular/common';
 })
 export class SignupPage
 {
-
   email: string = '';
   password: string = '';
   firstName: string = '';

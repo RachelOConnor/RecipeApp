@@ -1,0 +1,165 @@
+ion-header
+{
+    --ion-background-color: rgb(232, 155, 99);    
+    box-shadow: none !important;
+}
+
+ion-title
+{
+    font-family: 'Lemon Tuesday', sans-serif;
+    color: white;
+    font-size: 3em;
+    text-align: center;
+}
+
+.backButton
+{
+    padding-left: 3%;
+    color: rgb(232, 155, 99);
+}
+
+ion-content
+{
+    font-family: 'Hobo BT', sans-serif;
+
+    --ion-background-color: rgb(255, 252, 246);  
+    --background: url(../../assets/img/login-bg.png);
+    --background-size: cover;
+    background-repeat: no-repeat;
+}
+
+form
+{
+    margin-top: 3%;
+}
+
+.upload-placeholder
+{
+    object-fit: cover;
+    border-radius: 50%;
+
+    width: 150px;
+    height: 150px;
+
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid rgb(232, 155, 99);
+}
+
+.photo
+{
+    display: flex;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.remove-btn 
+{
+    background: rgb(232, 155, 99);
+    color: white;
+    font-family: 'Hobo BT', sans-serif;
+    width: 120px;
+    height: 30px;
+    margin-top: 2%;
+    border-radius: 10px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+.remove-btn:active
+{
+    --color: rgb(216, 109, 33);
+}
+
+
+ion-item
+{
+    --ion-background-color: transparent;
+    --inner-border-width: 0px;
+}
+
+ion-label
+{
+    font-family: 'Hobo BT', sans-serif !important;
+    color: rgb(232, 155, 99) !important;
+    margin-bottom: 3% !important;
+    font-size: 1.5em !important;
+}
+
+ion-input
+{
+    --ion-background-color: transparent;
+
+    background-color: rgb(232, 155, 99, 0.3);
+    border-bottom: 3px solid rgb(232, 155, 99);
+    height: 60px;
+    font-family: 'Hobo BT', sans-serif;
+
+    padding-left: 5% !important;
+
+    --color: rgb(216, 109, 33);
+}
+
+ion-button
+{
+    background-color: rgb(232, 155, 99);
+    font-family: 'Hobo BT', sans-serif;
+    border-radius: 13px;
+    color: white;
+    margin-bottom: 5%;
+    font-size: 1.2em;
+
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+ion-button::part(native) 
+{
+    border-radius: 20px;
+    background-color: rgb(232, 155, 99);
+    box-shadow: none;
+}
+
+.backButton
+{
+    --background: transparent !important;
+    --border-color: transparent !important;
+    --box-shadow: none !important;
+    --color: inherit;
+
+    margin-top: 4%;
+}
+
+.updateProfile
+{
+    justify-self: center;
+    width: 60%;
+
+    margin-top: 20px;
+}
+#update
+{
+    margin-top: 5%;
+}
+
+.logOut
+{
+    width: 40%;
+}
+
+ion-select
+{
+    background-color: rgb(232, 155, 99, 0.3);
+    border-bottom: 3px solid rgb(232, 155, 99);
+    font-family: 'Hobo BT', sans-serif;
+    padding-left: 3% !important;
+}
+
+ion-select::part(text) 
+{
+    color: rgb(216, 109, 33);
+}
+
+ion-select::part(icon) {
+    color:  rgb(216, 109, 33);
+}

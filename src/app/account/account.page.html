@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- <div class="ion-text-center">
+    <ion-button (click)="goToTab1()" class="backButton">Go to Home</ion-button>
+  </div> -->
+
+  <div class="backButton" (click)="goToTab1()">
+    <ion-icon aria-hidden="true" name="arrow-back-outline" style="font-size: 40px;"></ion-icon>
+  </div>
+
+  <form (ngSubmit)="updateProfile()" #profileForm="ngForm">
+        
+    <!-- Profile Picture -->
+    <div class="photo">
+      <input type="file" (change)="onImageSelected($event)" accept="image/*" hidden #fileInput>
+
+      <img [src]="imagePreview || 'https://www.pngkey.com/png/full/52-523516_empty-profile-picture-circle.png'" 
+            (click)="fileInput.click()"
+            class="upload-placeholder"
+            alt="Upload">
+
+      <button *ngIf="imagePreview" (click)="deleteImage()" class="remove-btn">
+        <ion-icon name="trash"></ion-icon> Remove Image
+      </button>
+    </div>
+
+    <!-- First Name -->
+    <ion-item lines="none">
+      <ion-label position="stacked">First Name</ion-label>
+      <ion-input type="text" [(ngModel)]="profile.first_name" name="first_name" required></ion-input>
+    </ion-item>
+
+    <!-- Last Name -->
+    <ion-item lines="none">
+      <ion-label position="stacked">Last Name</ion-label>
+      <ion-input type="text" [(ngModel)]="profile.last_name" name="last_name" required></ion-input>
+    </ion-item>
+
+    <!-- Username -->
+    <ion-item lines="none">
+      <ion-label position="stacked">Username</ion-label>
+      <ion-input type="text" [(ngModel)]="profile.username" name="username" required></ion-input>
+    </ion-item>
+
+    <!-- Cooking Skill Level -->
+    <ion-item lines="none">
+      <ion-label position="stacked">Cooking Skill Level</ion-label>
+      <ion-select [(ngModel)]="profile.cooking_skill_level" name="cooking_skill_level" placeholder="Select Cooking Level...">
+        <ion-select-option value="Beginner">Beginner</ion-select-option>
+        <ion-select-option value="Intermediate">Intermediate</ion-select-option>
+        <ion-select-option value="Advanced">Advanced</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Email -->
+    <ion-item lines="none">
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input type="email" [(ngModel)]="email" name="email" readonly></ion-input>
+    </ion-item>
+
+    <!-- Update Profile Button -->
+    <ion-button expand="full" type="submit" class="updateProfile" [disabled]="!profileForm.valid">
+      Update Profile
+    </ion-button>
+
+  </form>
+
+  <div class="ion-text-center">
+    <ion-button class="logOut" fill="clear" (click)="signOut()">Log Out</ion-button>
+  </div> 
+
+</ion-content>
