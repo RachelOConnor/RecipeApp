@@ -43,3 +43,14 @@
 
 /// ICON IMPORT ///
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+
+// SEARCHBAR CSS ///
+ion-searchbar{
+    .searchbar-input-container{
+        .searchbar-input{
+            border-radius: 30px !important;
+            box-shadow: none !important;
+        }
+    }
+}

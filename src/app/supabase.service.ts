@@ -242,7 +242,7 @@ export class SupabaseService
   }
 
   getRecipesByUser(userId: string) {
-    return this.supabase.from('recipes').select('*').eq('user_id', userId); // Adjust the query to match your table and column names
+    return this.supabase.from('recipes').select('*').eq('user_id', userId);
   }
 }
 

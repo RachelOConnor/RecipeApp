@@ -30,13 +30,24 @@ export class Tab1Page implements OnInit {
 
   async loadRecipes() {
     const user = await this.supabaseService.user;  // Get the current user
-    if (user) {
-      const { data, error } = await this.supabaseService.getRecipesByUser(user.id);  // Adjust method to get the recipes
-      if (error) {
+    console.log('User ID:', user ? user.id : 'No user logged in');
+
+    if (user) 
+      {
+      const { data, error } = await this.supabaseService.getRecipesByUser(user.id);
+
+      if (error) 
+      {
         console.error('Error fetching recipes:', error);
-      } else {
+      } else 
+      {
+        console.log('Fetched recipes:', data);
         this.recipes = data;
       }
+    }
+    else 
+    {
+      console.log('No user found');
     }
   }
 
