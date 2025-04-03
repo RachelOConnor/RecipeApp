@@ -1,17 +1,89 @@
 <ion-header [translucent]="true">
+
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Shopping List
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToAccountPage()">
+        <ion-icon name="person-circle" class="account-icon"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- ! -->
+  <!-- ? -->
+  <!-- * -->
+  <!-- TODO: -->
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+<ion-content>
+
+  <ion-list>
+
+    <!-- Dairy -->
+    <ion-item button (click)="toggleCategory('dairy')" class="category">
+      <ion-label>Dairy</ion-label>
+      <ion-icon [name]="categories['dairy'] ? 'chevron-up' : 'chevron-down'"></ion-icon>
+    </ion-item>
+
+    <div *ngIf="categories['dairy']">
+      <!-- Dairy things go here -->
+    </div>
+
+
+    <!-- Meat -->
+    <ion-item button (click)="toggleCategory('meat')" class="category">
+      <ion-label>Meat</ion-label>
+      <ion-icon [name]="categories['meat'] ? 'chevron-up' : 'chevron-down'"></ion-icon>
+    </ion-item>
+
+    <div *ngIf="categories['meat']">
+      <!-- Meat things below -->
+
+      <ion-item *ngFor="let item of meatItems; let i = index" class="added-item">
+        <ion-checkbox [(ngModel)]="item.checked"></ion-checkbox>
+        <ion-label>x{{ item.quantity }} {{ item.name }}</ion-label>
+        <ion-icon name="trash" (click)="deleteItem('meat', i)"></ion-icon>
+      </ion-item>
+
+      <div class="button-container">
+        <ion-item (click)="addItem('meat')" class="add-button">
+          <ion-icon name="add-circle"></ion-icon>
+          <ion-label>Add</ion-label>
+        </ion-item>
+    
+        <ion-item (click)="clearCategory('meat')" class="delete-button">
+          <ion-icon name="trash"></ion-icon>
+          <ion-label>Delete All</ion-label>
+        </ion-item>
+      </div>
+
+    </div>
+
+
+    <!-- Fruit -->
+    <ion-item button (click)="toggleCategory('fruit')" class="category">
+      <ion-label>Fruit</ion-label>
+      <ion-icon [name]="categories['fruit'] ? 'chevron-up' : 'chevron-down'"></ion-icon>
+    </ion-item>
+
+    <div *ngIf="categories['fruit']">
+      <!-- Fruit things -->
+    </div>
+
+
+    <!-- Drinks -->
+    <ion-item button (click)="toggleCategory('drinks')" class="category">
+      <ion-label>Drinks</ion-label>
+      <ion-icon [name]="categories['drinks'] ? 'chevron-up' : 'chevron-down'"></ion-icon>
+    </ion-item>
+
+    <div *ngIf="categories['drinks']">
+      <!-- Drinks -->
+    </div>
+    
+  </ion-list>
+
 </ion-content>
+

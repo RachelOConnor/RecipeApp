@@ -1,0 +1,173 @@
+// !
+// ?
+// *
+// TODO:
+
+ion-content
+{
+    --ion-background-color: rgb(255, 252, 246);    
+    font-family: 'Hobo BT', sans-serif;
+}
+
+ion-header
+{
+    --ion-background-color: rgb(232, 155, 99);    
+    box-shadow: none !important;
+}
+
+.account-icon
+{
+    font-size: 50px;
+    color: #ffffff; 
+    margin-right: 5%;
+    margin-top: 40%;
+}
+
+ion-title
+{
+    font-family: 'Lemon Tuesday', sans-serif;
+    color: white;
+    font-size: 3em;
+    margin-bottom: 3%;
+    text-align: center;
+    margin-top: 6%;
+}
+
+// / * CHECKBOXES */ / / / / / / / / / / / / / / / / / / / / /
+
+ion-list
+{
+    border: 3px solid rgb(232, 155, 99);
+}
+
+.category
+{
+    --background: #FFFCF6;
+    font-size: 18px;
+    color: rgb(232, 155, 99);
+    border-bottom: 3px solid rgb(232, 155, 99);
+    font-family: 'Hobo BT', sans-serif;
+}
+
+ion-icon 
+{
+    color: rgb(232, 155, 99);
+}
+
+ion-icon[name="trash"] 
+{
+    color: rgb(232, 155, 99);
+    margin-left: auto;
+    font-size: 22px;
+}
+
+
+//! - Icon not centered
+
+ion-icon[name="add-circle"] 
+{
+    color: white;
+    margin-left: auto;
+    margin-right: 10px;
+    font-size: 25px;
+    color: rgb(232, 155, 99);
+}
+
+//! - Icon not centered
+
+
+
+/* Remove default checkbox styles */
+ion-checkbox 
+{
+    --size: 25px;
+    --border-color: rgb(232, 155, 99); 
+    --checkmark-color: white; 
+    --checkbox-background-checked: rgb(232, 155, 99);
+    --checkbox-border-checked: rgb(232, 155, 99);
+}
+
+/* Main Category button */
+ion-item[button] 
+{
+    --background: #faf3e1;
+}
+
+ion-item[button] ion-label 
+{
+    color: rgb(232, 155, 99);
+    font-family: 'Hobo BT', sans-serif !important;
+    margin-left: 10px;
+}
+
+.button-container 
+{
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 100%;
+}
+
+.add-button
+{
+    ion-label
+    {
+        font-family: 'Hobo BT', sans-serif !important;
+    }
+
+    ion-icon
+    {
+        margin-left: 25%;
+    }
+
+    font-size: 20px;
+    color: rgb(232, 155, 99);
+    text-align: left;
+}
+
+.delete-button 
+{
+    ion-icon
+    {
+        color: white;
+        margin-left: 20%;
+        font-size: 22px;
+        margin-right: 5%;
+    }
+
+    ion-label
+    {
+        font-family: 'Hobo BT', sans-serif !important;
+    }
+
+    font-size: 20px;
+    --ion-background-color: rgb(232, 155, 99);
+    color: white;
+    text-align: left;
+}
+
+.added-item
+{
+    ion-label
+    {
+        font-family: 'Hobo BT', sans-serif !important;
+        color: rgb(232, 155, 99);
+        font-size: 18px;
+    }
+
+    ion-checkbox
+    {
+        margin-right: 0px;
+        padding-right: 0px;
+        max-width: 10%;
+    }
+}
+
+
+
+//! NOT WORKING !//
+
+//! - Border on checkmark still blue
+//! - Gap under list border
+
+
+
