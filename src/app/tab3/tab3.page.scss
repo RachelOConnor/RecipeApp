@@ -64,8 +64,8 @@ ion-icon
 {
     border: 1.5px solid #9d9d9d;
 
-    // top right bottom left
-    padding: 40px 18px 40px 18px;
+    width: 136px;
+    height: 200px;
 }
 
 h1{
@@ -97,4 +97,64 @@ h1{
     margin-top: 30px;
 }
 
-// TODO - by: name fills in black - make orange
+.recipe-preview 
+{
+    width: 90%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+
+    border-radius: 5px;
+}
+
+.topBox
+{
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 3px;
+}
+
+.recipeBox
+{
+    // top right bottom left
+    margin: 0px 2px 0px 2px;
+    padding: 5px 5px 5px 5px;
+
+    background-color: white;
+    border-radius: 5px;
+}
+
+.recipe-title
+{
+    margin: 0;
+    padding: 0;
+    color: #888888;
+}
+
+.remove-btn
+{
+    display: flex;
+
+    background-color: transparent;
+    padding: 0;
+
+    // top right bottom left
+    margin: 1px 0px 0px 5px;
+
+    ion-icon
+    {
+        color: #888888;
+        margin-bottom: 2px;
+    }
+}
+
+.mealName
+{
+    display: flex;
+    color: #888888;
+    margin-top: 7px;
+}

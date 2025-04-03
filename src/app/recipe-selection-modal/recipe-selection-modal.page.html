@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Select a Recipe</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Search Bar -->
+  <ion-searchbar [(ngModel)]="searchTerm" debounce="300" placeholder="Search Recipes"></ion-searchbar>
+
+  <!-- Recipe List -->
+  <ion-list>
+    <ion-item *ngFor="let recipe of filteredRecipes" (click)="selectRecipe(recipe)">
+      <ion-thumbnail slot="start">
+        <img [src]="recipe.image_url || '/assets/img/placeholderImg.png'" alt="Recipe Image">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ recipe.recipe_name }}</h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

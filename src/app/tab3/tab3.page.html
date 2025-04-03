@@ -22,15 +22,72 @@
   <div class="meal-container">
 
     <div class="box">
-      <button><i class="fa fa-plus"></i> Select</button>
+
+      <div class="topBox">
+        <h4 class="mealName">Breakfast
+          <button *ngIf="selectedRecipeImage['monday-breakfast']" (click)="remove('monday', 'breakfast')" class="remove-btn">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </h4>
+      </div>
+
+      <div class="recipeBox">
+        <img [src]="selectedRecipeImage['monday-breakfast'] || '/assets/img/placeholderImg.png'" 
+        (click)="openRecipeModal('monday', 'breakfast')"
+        class="recipe-preview"
+        alt="Select">
+
+        <p *ngIf="selectedRecipeName['monday-breakfast']" class="recipe-title">
+          {{ selectedRecipeName['monday-breakfast'] }}
+        </p>
+      </div>
+
     </div>
 
     <div class="box">
-      <button><i class="fa fa-plus"></i> Select</button>
+
+      <div class="topBox">
+        <h4 class="mealName">Lunch
+          <button *ngIf="selectedRecipeImage['monday-lunch']" (click)="remove('monday', 'lunch')" class="remove-btn">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </h4>
+      </div>
+
+      <div class="recipeBox">
+        <img [src]="selectedRecipeImage['monday-lunch'] || '/assets/img/placeholderImg.png'" 
+        (click)="openRecipeModal('monday', 'lunch')"
+        class="recipe-preview"
+        alt="Select">
+
+        <p *ngIf="selectedRecipeName['monday-lunch']" class="recipe-title">
+          {{ selectedRecipeName['monday-lunch'] }}
+        </p>
+      </div>
+
     </div>
 
     <div class="box">
-      <button><i class="fa fa-plus"></i> Select</button>
+
+      <div class="topBox">
+        <h4 class="mealName">Dinner
+          <button *ngIf="selectedRecipeImage['monday-dinner']" (click)="remove('monday', 'dinner')" class="remove-btn">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </h4>
+      </div>
+
+      <div class="recipeBox">
+        <img [src]="selectedRecipeImage['monday-dinner'] || '/assets/img/placeholderImg.png'" 
+        (click)="openRecipeModal('monday', 'dinner')"
+        class="recipe-preview"
+        alt="Select">
+
+        <p *ngIf="selectedRecipeName['monday-dinner']" class="recipe-title">
+          {{ selectedRecipeName['monday-dinner'] }}
+        </p>
+      </div>
+
     </div>
 
   </div>
@@ -43,19 +100,76 @@
     <img src="../../assets/img/underline.png" alt="underline">      
   </div>
 
-<div class="meal-container">
+  <div class="meal-container">
 
-  <div class="box">
-    <button><i class="fa fa-plus"></i> Select</button>
-  </div>
+    <div class="box">
 
-  <div class="box">
-    <button><i class="fa fa-plus"></i> Select</button>
-  </div>
+      <div class="topBox">
+        <h4 class="mealName">Breakfast
+          <button *ngIf="selectedRecipeImage['tuesday-breakfast']" (click)="remove('tuesday', 'breakfast')" class="remove-btn">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </h4>
+      </div>
 
-  <div class="box">
-    <button><i class="fa fa-plus"></i> Select</button>
-  </div>
+      <div class="recipeBox">
+        <img [src]="selectedRecipeImage['tuesday-breakfast'] || '/assets/img/placeholderImg.png'" 
+        (click)="openRecipeModal('tuesday', 'breakfast')"
+        class="recipe-preview"
+        alt="Select">
+
+        <p *ngIf="selectedRecipeName['tuesday-breakfast']" class="recipe-title">
+          {{ selectedRecipeName['tuesday-breakfast'] }}
+        </p>
+      </div>
+
+    </div>
+
+    <div class="box">
+
+      <div class="topBox">
+        <h4 class="mealName">Lunch
+          <button *ngIf="selectedRecipeImage['tuesday-lunch']" (click)="remove('tuesday', 'lunch')" class="remove-btn">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </h4>
+      </div>
+
+      <div class="recipeBox">
+        <img [src]="selectedRecipeImage['tuesday-lunch'] || '/assets/img/placeholderImg.png'" 
+        (click)="openRecipeModal('tuesday', 'lunch')"
+        class="recipe-preview"
+        alt="Select">
+
+        <p *ngIf="selectedRecipeName['tuesday-lunch']" class="recipe-title">
+          {{ selectedRecipeName['tuesday-lunch'] }}
+        </p>
+      </div>
+
+    </div>
+
+    <div class="box">
+
+      <div class="topBox">
+        <h4 class="mealName">Dinner
+          <button *ngIf="selectedRecipeImage['tuesday-dinner']" (click)="remove('tuesday', 'dinner')" class="remove-btn">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </h4>
+      </div>
+
+      <div class="recipeBox">
+        <img [src]="selectedRecipeImage['tuesday-dinner'] || '/assets/img/placeholderImg.png'" 
+        (click)="openRecipeModal('tuesday', 'dinner')"
+        class="recipe-preview"
+        alt="Select">
+
+        <p *ngIf="selectedRecipeName['tuesday-dinner']" class="recipe-title">
+          {{ selectedRecipeName['tuesday-dinner'] }}
+        </p>
+      </div>
+
+    </div>
 
   </div>
 
@@ -69,17 +183,74 @@
 
   <div class="meal-container">
 
-  <div class="box">
-    <button><i class="fa fa-plus"></i> Select</button>
-  </div>
+    <div class="box">
 
-  <div class="box">
-    <button><i class="fa fa-plus"></i> Select</button>
-  </div>
+      <div class="topBox">
+        <h4 class="mealName">Breakfast
+          <button *ngIf="selectedRecipeImage['wednesday-breakfast']" (click)="remove('wednesday', 'breakfast')" class="remove-btn">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </h4>
+      </div>
 
-  <div class="box">
-    <button><i class="fa fa-plus"></i> Select</button>
-  </div>
+      <div class="recipeBox">
+        <img [src]="selectedRecipeImage['wednesday-breakfast'] || '/assets/img/placeholderImg.png'" 
+        (click)="openRecipeModal('wednesday', 'breakfast')"
+        class="recipe-preview"
+        alt="Select">
+
+        <p *ngIf="selectedRecipeName['wednesday-breakfast']" class="recipe-title">
+          {{ selectedRecipeName['wednesday-breakfast'] }}
+        </p>
+      </div>
+
+    </div>
+
+    <div class="box">
+
+      <div class="topBox">
+        <h4 class="mealName">Lunch
+          <button *ngIf="selectedRecipeImage['wednesday-lunch']" (click)="remove('wednesday', 'lunch')" class="remove-btn">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </h4>
+      </div>
+
+      <div class="recipeBox">
+        <img [src]="selectedRecipeImage['wednesday-lunch'] || '/assets/img/placeholderImg.png'" 
+        (click)="openRecipeModal('wednesday', 'lunch')"
+        class="recipe-preview"
+        alt="Select">
+
+        <p *ngIf="selectedRecipeName['wednesday-lunch']" class="recipe-title">
+          {{ selectedRecipeName['wednesday-lunch'] }}
+        </p>
+      </div>
+
+    </div>
+
+    <div class="box">
+
+      <div class="topBox">
+        <h4 class="mealName">Dinner
+          <button *ngIf="selectedRecipeImage['wednesday-dinner']" (click)="remove('wednesday', 'dinner')" class="remove-btn">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </h4>
+      </div>
+
+      <div class="recipeBox">
+        <img [src]="selectedRecipeImage['wednesday-dinner'] || '/assets/img/placeholderImg.png'" 
+        (click)="openRecipeModal('wednesday', 'dinner')"
+        class="recipe-preview"
+        alt="Select">
+
+        <p *ngIf="selectedRecipeName['wednesday-dinner']" class="recipe-title">
+          {{ selectedRecipeName['wednesday-dinner'] }}
+        </p>
+      </div>
+
+    </div>
 
   </div>
 
@@ -93,17 +264,74 @@
 
   <div class="meal-container">
 
-  <div class="box">
-    <button><i class="fa fa-plus"></i> Select</button>
-  </div>
+    <div class="box">
 
-  <div class="box">
-    <button><i class="fa fa-plus"></i> Select</button>
-  </div>
+      <div class="topBox">
+        <h4 class="mealName">Breakfast
+          <button *ngIf="selectedRecipeImage['thursday-breakfast']" (click)="remove('thursday', 'breakfast')" class="remove-btn">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </h4>
+      </div>
 
-  <div class="box">
-    <button><i class="fa fa-plus"></i> Select</button>
-  </div>
+      <div class="recipeBox">
+        <img [src]="selectedRecipeImage['thursday-breakfast'] || '/assets/img/placeholderImg.png'" 
+        (click)="openRecipeModal('thursday', 'breakfast')"
+        class="recipe-preview"
+        alt="Select">
+
+        <p *ngIf="selectedRecipeName['thursday-breakfast']" class="recipe-title">
+          {{ selectedRecipeName['thursday-breakfast'] }}
+        </p>
+      </div>
+
+    </div>
+
+    <div class="box">
+
+      <div class="topBox">
+        <h4 class="mealName">Lunch
+          <button *ngIf="selectedRecipeImage['thursday-lunch']" (click)="remove('thursday', 'lunch')" class="remove-btn">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </h4>
+      </div>
+
+      <div class="recipeBox">
+        <img [src]="selectedRecipeImage['thursday-lunch'] || '/assets/img/placeholderImg.png'" 
+        (click)="openRecipeModal('thursday', 'lunch')"
+        class="recipe-preview"
+        alt="Select">
+
+        <p *ngIf="selectedRecipeName['thursday-lunch']" class="recipe-title">
+          {{ selectedRecipeName['thursday-lunch'] }}
+        </p>
+      </div>
+
+    </div>
+
+    <div class="box">
+
+      <div class="topBox">
+        <h4 class="mealName">Dinner
+          <button *ngIf="selectedRecipeImage['thursday-dinner']" (click)="remove('thursday', 'dinner')" class="remove-btn">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </h4>
+      </div>
+
+      <div class="recipeBox">
+        <img [src]="selectedRecipeImage['thursday-dinner'] || '/assets/img/placeholderImg.png'" 
+        (click)="openRecipeModal('thursday', 'dinner')"
+        class="recipe-preview"
+        alt="Select">
+
+        <p *ngIf="selectedRecipeName['thursday-dinner']" class="recipe-title">
+          {{ selectedRecipeName['thursday-dinner'] }}
+        </p>
+      </div>
+
+    </div>
 
   </div>
 
@@ -117,17 +345,74 @@
 
   <div class="meal-container">
 
-  <div class="box">
-    <button><i class="fa fa-plus"></i> Select</button>
-  </div>
+    <div class="box">
 
-  <div class="box">
-    <button><i class="fa fa-plus"></i> Select</button>
-  </div>
+      <div class="topBox">
+        <h4 class="mealName">Breakfast
+          <button *ngIf="selectedRecipeImage['friday-breakfast']" (click)="remove('friday', 'breakfast')" class="remove-btn">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </h4>
+      </div>
 
-  <div class="box">
-    <button><i class="fa fa-plus"></i> Select</button>
-  </div>
+      <div class="recipeBox">
+        <img [src]="selectedRecipeImage['friday-breakfast'] || '/assets/img/placeholderImg.png'" 
+        (click)="openRecipeModal('friday', 'breakfast')"
+        class="recipe-preview"
+        alt="Select">
+
+        <p *ngIf="selectedRecipeName['friday-breakfast']" class="recipe-title">
+          {{ selectedRecipeName['friday-breakfast'] }}
+        </p>
+      </div>
+
+    </div>
+
+    <div class="box">
+
+      <div class="topBox">
+        <h4 class="mealName">Lunch
+          <button *ngIf="selectedRecipeImage['friday-lunch']" (click)="remove('friday', 'lunch')" class="remove-btn">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </h4>
+      </div>
+
+      <div class="recipeBox">
+        <img [src]="selectedRecipeImage['friday-lunch'] || '/assets/img/placeholderImg.png'" 
+        (click)="openRecipeModal('friday', 'lunch')"
+        class="recipe-preview"
+        alt="Select">
+
+        <p *ngIf="selectedRecipeName['friday-lunch']" class="recipe-title">
+          {{ selectedRecipeName['friday-lunch'] }}
+        </p>
+      </div>
+
+    </div>
+
+    <div class="box">
+
+      <div class="topBox">
+        <h4 class="mealName">Dinner
+          <button *ngIf="selectedRecipeImage['friday-dinner']" (click)="remove('friday', 'dinner')" class="remove-btn">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </h4>
+      </div>
+
+      <div class="recipeBox">
+        <img [src]="selectedRecipeImage['friday-dinner'] || '/assets/img/placeholderImg.png'" 
+        (click)="openRecipeModal('friday', 'dinner')"
+        class="recipe-preview"
+        alt="Select">
+
+        <p *ngIf="selectedRecipeName['friday-dinner']" class="recipe-title">
+          {{ selectedRecipeName['friday-dinner'] }}
+        </p>
+      </div>
+
+    </div>
 
   </div>
 
@@ -141,17 +426,74 @@
 
   <div class="meal-container">
 
-  <div class="box">
-    <button><i class="fa fa-plus"></i> Select</button>
-  </div>
+    <div class="box">
 
-  <div class="box">
-    <button><i class="fa fa-plus"></i> Select</button>
-  </div>
+      <div class="topBox">
+        <h4 class="mealName">Breakfast
+          <button *ngIf="selectedRecipeImage['saturday-breakfast']" (click)="remove('saturday', 'breakfast')" class="remove-btn">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </h4>
+      </div>
 
-  <div class="box">
-    <button><i class="fa fa-plus"></i> Select</button>
-  </div>
+      <div class="recipeBox">
+        <img [src]="selectedRecipeImage['saturday-breakfast'] || '/assets/img/placeholderImg.png'" 
+        (click)="openRecipeModal('saturday', 'breakfast')"
+        class="recipe-preview"
+        alt="Select">
+
+        <p *ngIf="selectedRecipeName['saturday-breakfast']" class="recipe-title">
+          {{ selectedRecipeName['saturday-breakfast'] }}
+        </p>
+      </div>
+
+    </div>
+
+    <div class="box">
+
+      <div class="topBox">
+        <h4 class="mealName">Lunch
+          <button *ngIf="selectedRecipeImage['saturday-lunch']" (click)="remove('saturday', 'lunch')" class="remove-btn">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </h4>
+      </div>
+
+      <div class="recipeBox">
+        <img [src]="selectedRecipeImage['saturday-lunch'] || '/assets/img/placeholderImg.png'" 
+        (click)="openRecipeModal('saturday', 'lunch')"
+        class="recipe-preview"
+        alt="Select">
+
+        <p *ngIf="selectedRecipeName['saturday-lunch']" class="recipe-title">
+          {{ selectedRecipeName['saturday-lunch'] }}
+        </p>
+      </div>
+
+    </div>
+
+    <div class="box">
+
+      <div class="topBox">
+        <h4 class="mealName">Dinner
+          <button *ngIf="selectedRecipeImage['saturday-dinner']" (click)="remove('saturday', 'dinner')" class="remove-btn">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </h4>
+      </div>
+
+      <div class="recipeBox">
+        <img [src]="selectedRecipeImage['saturday-dinner'] || '/assets/img/placeholderImg.png'" 
+        (click)="openRecipeModal('saturday', 'dinner')"
+        class="recipe-preview"
+        alt="Select">
+
+        <p *ngIf="selectedRecipeName['saturday-dinner']" class="recipe-title">
+          {{ selectedRecipeName['saturday-dinner'] }}
+        </p>
+      </div>
+
+    </div>
 
   </div>
 
@@ -165,17 +507,74 @@
 
   <div class="meal-container">
 
-  <div class="box">
-    <button><i class="fa fa-plus"></i> Select</button>
-  </div>
+    <div class="box">
 
-  <div class="box">
-    <button><i class="fa fa-plus"></i> Select</button>
-  </div>
+      <div class="topBox">
+        <h4 class="mealName">Breakfast
+          <button *ngIf="selectedRecipeImage['sunday-breakfast']" (click)="remove('sunday', 'breakfast')" class="remove-btn">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </h4>
+      </div>
 
-  <div class="box">
-    <button><i class="fa fa-plus"></i> Select</button>
-  </div>
+      <div class="recipeBox">
+        <img [src]="selectedRecipeImage['sunday-breakfast'] || '/assets/img/placeholderImg.png'" 
+        (click)="openRecipeModal('sunday', 'breakfast')"
+        class="recipe-preview"
+        alt="Select">
+
+        <p *ngIf="selectedRecipeName['sunday-breakfast']" class="recipe-title">
+          {{ selectedRecipeName['sunday-breakfast'] }}
+        </p>
+      </div>
+
+    </div>
+
+    <div class="box">
+
+      <div class="topBox">
+        <h4 class="mealName">Lunch
+          <button *ngIf="selectedRecipeImage['sunday-lunch']" (click)="remove('sunday', 'lunch')" class="remove-btn">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </h4>
+      </div>
+
+      <div class="recipeBox">
+        <img [src]="selectedRecipeImage['sunday-lunch'] || '/assets/img/placeholderImg.png'" 
+        (click)="openRecipeModal('sunday', 'lunch')"
+        class="recipe-preview"
+        alt="Select">
+
+        <p *ngIf="selectedRecipeName['sunday-lunch']" class="recipe-title">
+          {{ selectedRecipeName['sunday-lunch'] }}
+        </p>
+      </div>
+
+    </div>
+
+    <div class="box">
+
+      <div class="topBox">
+        <h4 class="mealName">Dinner
+          <button *ngIf="selectedRecipeImage['sunday-dinner']" (click)="remove('sunday', 'dinner')" class="remove-btn">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </h4>
+      </div>
+
+      <div class="recipeBox">
+        <img [src]="selectedRecipeImage['sunday-dinner'] || '/assets/img/placeholderImg.png'" 
+        (click)="openRecipeModal('sunday', 'dinner')"
+        class="recipe-preview"
+        alt="Select">
+
+        <p *ngIf="selectedRecipeName['sunday-dinner']" class="recipe-title">
+          {{ selectedRecipeName['sunday-dinner'] }}
+        </p>
+      </div>
+
+    </div>
 
   </div>
 

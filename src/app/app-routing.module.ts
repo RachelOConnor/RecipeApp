@@ -6,6 +6,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LoginPage } from './login/login.page';
 import { SignupPage } from './signup/signup.page';
 import { CreateRecipePage } from './create-recipe/create-recipe.page';
+import { RecipeSelectionModalPage } from './recipe-selection-modal/recipe-selection-modal.page';
 
 const routes: Routes = [
   {
@@ -26,14 +27,18 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
-  // {
-  //   path: 'create-recipe',
-  //   loadChildren: () => import('./create-recipe/create-recipe.module').then( m => m.CreateRecipePageModule)
-  // },
   {
     path: 'create-recipe',
     component: CreateRecipePage,
   },
+  {
+    path: 'recipe-selection-modal',
+    component: RecipeSelectionModalPage,
+  },
+  // {
+  //   path: 'recipe-selection-modal',
+  //   loadChildren: () => import('./recipe-selection-modal/recipe-selection-modal.module').then( m => m.RecipeSelectionModalPageModule)
+  // },
 ];
 @NgModule({
   imports: [
