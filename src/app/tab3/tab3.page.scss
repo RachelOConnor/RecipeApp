@@ -1,0 +1,100 @@
+ion-content
+{
+    background-size: cover;
+    background-repeat: repeat;
+    --ion-background-color:url(../../assets/img/blackboard-bg.png);
+
+    font-family: 'Hobo BT', sans-serif;
+}
+
+ion-header
+{ 
+    --ion-background-color:url(../../assets/img/blackboard-bg.png);
+    box-shadow: none !important;
+}
+
+.account-icon
+{
+    font-size: 50px;
+    color: #ffffff; 
+    margin-right: 5%;
+    margin-top: 26%;
+}
+
+ion-title
+{
+    font-family: 'Lemon Tuesday', sans-serif;
+    color: white;
+    font-size: 3em;
+    margin-bottom: 5%;
+    text-align: center;
+    margin-top: 6%;
+    margin-left: 5%;
+}
+
+button
+{
+    font-size: 15px;
+    font-family: "Montserrat", serif;
+    background-color: #9d9d9d;
+    color: white;
+    border-radius: 40px;    
+
+    // top right bottom left
+    padding: 12px 15px 12px 15px;
+}
+
+ion-icon
+{
+    font-size: 20px;
+    color: white;
+}
+
+.meal-container
+{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #d5d5d5;
+    border: 2px solid #9d9d9d;
+
+    text-align: center;
+}
+
+.box
+{
+    border: 1.5px solid #9d9d9d;
+
+    // top right bottom left
+    padding: 40px 18px 40px 18px;
+}
+
+h1{
+    font-size: 2.5em;
+    font-family: 'Lemon Tuesday', sans-serif;
+    color: white;
+    text-align: center;
+
+    // top right bottom left
+    margin: 20px 0px 0px 0px;
+}
+
+.underline
+{
+    width: 50%;
+    justify-self: center;
+
+    // top right bottom left
+    margin: -10px 0px 10px 0px;
+}
+
+.spacer 
+{
+    margin-top: 40px;
+}
+
+.bottom-spacer
+{
+    margin-top: 30px;
+}
+
+// TODO - by: name fills in black - make orange
