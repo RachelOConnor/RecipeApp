@@ -1,0 +1,164 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// UNIVERSAL //
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ion-content
+{
+    --ion-background-color: rgb(255, 252, 246);    
+    font-family: 'Hobo BT', sans-serif;
+}
+
+ion-header
+{
+    --ion-background-color: rgb(232, 155, 99);    
+    box-shadow: none !important;
+}
+
+.account-icon
+{
+    font-size: 50px;
+    color: #ffffff; 
+    margin-right: 5%;
+    margin-top: 40%;
+}
+
+ion-searchbar
+{
+    --ion-background-color: rgb(255, 220, 195);
+    --icon-color: rgb(232, 155, 99);
+
+    color: rgb(214, 89, 0);
+    font-family: 'Hobo BT', sans-serif;
+    padding-bottom: 10px;
+}
+
+ion-title
+{
+    font-family: 'Lemon Tuesday', sans-serif;
+    color: white;
+    font-size: 3em;
+    text-align: center;
+
+    padding-top: 6%;
+    margin-left: 25%;
+    margin-bottom: 3%;
+}
+
+.spacer-bottom
+{
+    padding-top: 80px;
+}
+
+//////////////////////////////////
+/// RECIPE CARDS ///
+//////////////////////////////////
+
+.recipe-card
+{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+
+    font-family: 'Hobo BT', sans-serif;
+    width: 100%;
+
+    margin: 0;
+}
+
+img
+{
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+.recipe-info-container
+{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1px;
+
+    font-size: small;
+    color: rgb(173, 173, 173);
+    }
+
+    .info-cats
+    {
+        margin-bottom: 0px;
+    }
+
+    .info-input
+    {
+        margin-top: 0;
+        color: rgb(109, 109, 109);
+        font-size: medium;
+    }
+
+h4
+{
+    margin-bottom: 0;
+}
+
+img 
+{
+    border-radius: 5px 5px 0 0;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// WEB VERSION //
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////
+/// RECIPE CARDS ///
+//////////////////////////////////
+
+.grid-container
+{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: center;
+    gap: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// ANDROID VERSION ///
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+@media screen and (max-width: 800px)
+{
+    //////////////////////////////////
+    /// RECIPE CARDS ///
+    //////////////////////////////////
+    .grid-container
+    {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 20px;
+    }
+
+    .create-recipe
+    {
+        position: fixed;
+        left: 80vw;
+        top: 175vw;
+        color:rgb(232, 155, 99);
+    }
+
+
+    //////////////////////////////////
+    /// - ///
+    //////////////////////////////////
+
+}

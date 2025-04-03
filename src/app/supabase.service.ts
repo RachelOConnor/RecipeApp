@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { LoadingController, ToastController } from '@ionic/angular'
 import { createClient, SupabaseClient, User, Session } from '@supabase/supabase-js';
 
 @Injectable({
@@ -9,11 +10,18 @@ export class SupabaseService
 {
   private supabase: SupabaseClient;
 
-  constructor() 
+  constructor(
+    private loadingCtrl: LoadingController,
+    private toastCtrl: ToastController
+  ) 
   {
     const supabaseUrl = 'https://mdqsggfygmfryusfsztz.supabase.co';
     const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1kcXNnZ2Z5Z21mcnl1c2ZzenR6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM1NzM5NTEsImV4cCI6MjA1OTE0OTk1MX0.Vhz9Gwp27zRQgeKN54hzd1nY5NWOTp-nc4DkMDdOjZw';
     this.supabase = createClient(supabaseUrl, supabaseKey);
+  }
+
+  get user() {
+    return this.supabase.auth.getUser().then(({ data }) => data?.user)
   }
 
   // Sign up
@@ -179,6 +187,64 @@ export class SupabaseService
     }
 
     return data?.session;  // Returns session or null
+  }
+
+
+
+
+  async uploadImage(filePath: string, file: File): Promise<string | null> {
+    try {
+      const { data, error } = await this.supabase.storage
+        .from('recipes')  // Ensure 'recipes' is your actual storage bucket name
+        .upload(filePath, file, { upsert: true });
+
+  
+      if (error) {
+        console.error('Upload error:', error.message);
+        return null;
+      }
+
+      const { data: publicUrlData } = this.supabase.storage
+      .from('recipes')
+      .getPublicUrl(filePath);
+  
+      return publicUrlData.publicUrl;
+    } catch (error) {
+      console.error('Unexpected upload error:', error);
+      return null;
+    }
+  }
+
+  async createRecipe(recipe: any) {
+    const { data, error } = await this.supabase
+      .from('recipes')
+      .insert([recipe]);  // Insert a new recipe
+    
+      if (error) {
+        return { data: null, error };  // Return error if it occurs
+      }
+      return { data, error: null };  // Return data if successful
+    }
+
+    async getUser() {
+      const { data, error } = await this.supabase.auth.getUser();
+      return data?.user || null;
+    }
+
+  async getUserRecipes(userId: string) {
+    const { data, error } = await this.supabase
+      .from('recipes')
+      .select('*')
+      .eq('user_id', userId);
+
+    if (error) {
+      throw new Error('Failed to load recipes: ' + error.message);
+    }
+    return data;
+  }
+
+  getRecipesByUser(userId: string) {
+    return this.supabase.from('recipes').select('*').eq('user_id', userId); // Adjust the query to match your table and column names
   }
 }
 

@@ -1,17 +1,72 @@
 <ion-header [translucent]="true">
+
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Recipes
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToAccountPage()">
+        <ion-icon name="person-circle" class="account-icon"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-searchbar placeholder="Search Recipe"></ion-searchbar>
+  </ion-toolbar>
+  
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <div *ngIf="recipes.length === 0" class="no-recipes-message">
+    No recipes found. Please create one.
+  </div>
+
+
+<ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let recipe of recipes">
+
+        <ion-card class="recipe-card">
+
+          <img alt="dish picture" [src]="recipe.image_url || 'https://ionicframework.com/docs/img/demos/card-media.png'" />
+
+          <ion-card-header>
+            <ion-card-title ><b>{{ recipe.recipe_name }}</b></ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <div class="recipe-info-container">
+              <div class="recipe-info">
+                <p class="info-cats">
+                  Total Time:
+                </p>
+                <p class="info-input">
+                  {{ getTotalTimeFormatted(recipe) }}
+                </p>
+              </div>
+    
+              <div class="recipe-info">
+                <p class="info-cats">
+                  Serves:
+                </p>
+                <p class="info-input">
+                  {{ recipe.serves }}
+                </p>
+              </div>
+            </div>
+          </ion-card-content>
+
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <div class="create-recipe" [routerLink]="'/create-recipe'">
+    <ion-icon aria-hidden="true" name="add-circle" style="font-size: 80px;"></ion-icon>
+  </div>
+
 </ion-content>
