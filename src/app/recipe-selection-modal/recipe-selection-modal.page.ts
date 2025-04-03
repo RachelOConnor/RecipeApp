@@ -42,4 +42,18 @@ export class RecipeSelectionModalPage implements OnInit {
     this.modalController.dismiss({ selectedRecipe: recipe });
   }
 
+  getTotalTimeFormatted(recipe: any): string {
+    const totalMinutes = Number(recipe.prep_time) + Number(recipe.cook_time);
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = totalMinutes % 60;
+  
+    if (hours > 0 && minutes > 0) {
+      return `${hours}h ${minutes}m`;
+    } else if (hours > 0) {
+      return `${hours}h`;
+    } else {
+      return `${minutes}m`;
+    }
+  }
+
 }

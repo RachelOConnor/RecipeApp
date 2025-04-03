@@ -72,7 +72,7 @@ export class Tab3Page implements OnInit {
         this.selectedRecipes[day] = this.selectedRecipes[day] || {};
         this.selectedRecipes[day][meal] = selectedRecipe;
 
-        this.selectedRecipeImage[info] = selectedRecipe.image_url || '/assets/img/placeholderImg.png';
+        this.selectedRecipeImage[info] = selectedRecipe.image_url || 'https://ionicframework.com/docs/img/demos/card-media.png';
         this.selectedRecipeName[info] = selectedRecipe.recipe_name || 'Unknown Recipe';
       }
     });

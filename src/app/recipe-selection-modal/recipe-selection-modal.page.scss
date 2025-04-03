@@ -1,0 +1,91 @@
+
+ion-content
+{
+    --ion-background-color: rgb(255, 252, 246);    
+}
+
+ion-header
+{
+    --ion-background-color: rgb(232, 155, 99);    
+    box-shadow: none !important;
+}
+
+ion-title
+{
+    font-family: 'Lemon Tuesday', sans-serif;
+    color: white;
+    font-size: 2em;
+    text-align: center;
+
+    padding-top: 6%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+}
+
+ion-searchbar
+{
+    --ion-background-color: rgb(255, 220, 195);
+    --icon-color: rgb(232, 155, 99);
+
+    color: rgb(214, 89, 0);
+    font-family: 'Hobo BT', sans-serif;
+    padding-bottom: 10px;
+}
+
+#close-btn
+{
+    color: white;
+
+    ion-icon
+    {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.recipe-card
+{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+
+    font-family: 'Hobo BT', sans-serif;
+    width: 100%;
+
+    margin: 0;
+}
+
+img
+{
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+
+    border-radius: 5px 5px 0 0;
+}
+
+.recipe-info-container
+{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1px;
+
+    font-size: small;
+    color: rgb(173, 173, 173);
+    }
+
+    .info-cats
+    {
+        margin-bottom: 0px;
+    }
+
+    .info-input
+    {
+        margin-top: 0;
+        color: rgb(109, 109, 109);
+        font-size: medium;
+    }

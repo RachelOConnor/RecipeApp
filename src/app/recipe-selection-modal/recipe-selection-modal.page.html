@@ -2,25 +2,58 @@
   <ion-toolbar>
     <ion-title>Select a Recipe</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="dismiss()">Close</ion-button>
+      <ion-button id="close-btn" (click)="dismiss()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
     </ion-buttons>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-searchbar [(ngModel)]="searchTerm" debounce="300" placeholder="Search Recipes"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!-- Search Bar -->
-  <ion-searchbar [(ngModel)]="searchTerm" debounce="300" placeholder="Search Recipes"></ion-searchbar>
-
+  
   <!-- Recipe List -->
-  <ion-list>
-    <ion-item *ngFor="let recipe of filteredRecipes" (click)="selectRecipe(recipe)">
-      <ion-thumbnail slot="start">
-        <img [src]="recipe.image_url || '/assets/img/placeholderImg.png'" alt="Recipe Image">
-      </ion-thumbnail>
-      <ion-label>
-        <h2>{{ recipe.recipe_name }}</h2>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let recipe of filteredRecipes">
+
+        <ion-card class="recipe-card" (click)="selectRecipe(recipe)">
+
+            <img [src]="recipe.image_url || 'https://ionicframework.com/docs/img/demos/card-media.png'" alt="Recipe Image">
+
+            <ion-card-header>
+              <ion-card-title ><b>{{ recipe.recipe_name }}</b></ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+              <div class="recipe-info-container">
+                <div class="recipe-info">
+                  <p class="info-cats">
+                    Total Time:
+                  </p>
+                  <p class="info-input">
+                    {{ getTotalTimeFormatted(recipe) }}
+                  </p>
+                </div>
+      
+                <div class="recipe-info">
+                  <p class="info-cats">
+                    Serves:
+                  </p>
+                  <p class="info-input">
+                    {{ recipe.serves }}
+                  </p>
+                </div>
+              </div>
+            </ion-card-content>
+
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
