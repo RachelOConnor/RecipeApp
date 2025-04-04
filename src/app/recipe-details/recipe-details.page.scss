@@ -1,0 +1,328 @@
+
+
+ion-content
+{
+    background-size: cover;
+    background-repeat: repeat;
+    --ion-background-color:url(../../assets/img/orange-bg.png);
+
+    font-family: 'Hobo BT', sans-serif;
+}
+
+.backButton
+{
+    padding-left: 3%;
+    color: rgb(232, 155, 99);
+    padding-top: 20px;
+}
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// TOP SECTION ///
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    .top-section-container
+{
+    display: grid;
+    grid-template-areas:
+    'text1 text1 img1'
+    'text2 text2 img1';
+
+    margin-left: 10px;
+    margin-right: 10px;
+
+    // top right bottom left
+    padding: 0px 0px 10px 10px;
+
+    font-family: 'Lemon Tuesday', sans-serif;
+
+    color: rgb(232, 155, 99);
+}
+
+.title
+{
+    grid-area:text1;
+}
+.by
+{
+    grid-area:text2;
+    margin-right: 15%;
+    margin-left: 2%;
+}
+.photo
+{
+    grid-area:img1;
+    padding-top: 5%;
+    padding-left: 5%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.author-container
+{
+    display: grid;
+    grid-template-columns: 20% 70%;
+}
+
+#author
+{
+    border-bottom: 2px dashed rgb(232, 155, 99);
+    font-size: 1.3em;
+}
+
+#author-label
+{
+    font-size: 1.3em;
+}
+
+#recipeName
+{
+    background-color: transparent;
+    border: none;
+    font-size: 2.8em;
+    color: rgb(232, 155, 99);
+    width: 100%;
+}
+
+#dish-pic
+{
+    border: 5px solid rgb(232, 155, 99);
+    border-radius: 10%;
+    background-color: white;
+
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// MID-TOP SECTION ///
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+.text1
+{
+    grid-area:text1;
+    background-color: rgb(232, 155, 99);
+    color: white;
+}
+.text2
+{
+    grid-area:text2;
+    background-color: rgb(232, 155, 99);
+    color: white;
+}
+.text3
+{
+    grid-area:text3;
+    background-color: rgb(232, 155, 99);
+    color: white;
+}
+.box1
+{
+    grid-area:box1;
+    background-color: white;
+    width: 130px;
+}
+.box2
+{
+    grid-area:box2;
+    background-color: white;
+    width: 130px;
+}
+.box3
+{
+    grid-area:box3;
+    background-color: white;
+    width: 130px;
+}
+
+.info-container // OUTER DETAILS
+{
+    display: grid;
+    grid-template-areas:
+    'text1 text2 text3'
+    'box1 box2 box3';
+    padding-top: 5px;
+    font-size: 1.2em;
+    text-align: center;
+
+    margin-left: 3%;
+    margin-right: 3%;
+}
+.info-container > div // INNER DETAILS
+{
+    border: 3px solid rgb(232, 155, 99);
+    padding: 1px;
+}
+
+.info-input
+{
+    border: none;
+    width: 100%;
+    color: rgb(232, 155, 99);
+    text-align: center;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// MID-BOTTOM SECTION ///
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+.ingredients
+{
+    color: rgb(232, 155, 99);
+    background-color: white;
+    border: 3px solid rgb(232, 155, 99);
+    border-radius: 10px;
+
+    // top right bottom left
+    padding: 10px 0px 10px 10px;
+    margin-top: 10px;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.text-area
+{
+    width: 97%;
+    padding-bottom: 5x;
+    height: fit-content;
+    border: none;
+}
+
+h2
+{
+    font-size: x-large;
+    margin: 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// BOTTOM SECTION ///
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+.bottom-container
+{
+    display: grid;
+    grid-template-areas:
+    'method utensils'
+    'method notes';
+
+    gap: 3px;
+    margin-top: 10px;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.method
+{
+    grid-area:method;
+    background-color: white;
+    color: rgb(232, 155, 99);
+
+    border: 3px solid rgb(232, 155, 99);
+    border-radius: 10px;
+
+    // top right bottom left
+    padding: 10px 0px 10px 10px;
+}
+.method-text
+{
+    width: 97%;
+    height: 450px;
+    border: none;
+}
+
+.utensils
+{
+    grid-area:utensils;
+    background-color: white;
+    color: rgb(232, 155, 99);
+
+    border: 3px solid rgb(232, 155, 99);
+    border-radius: 10px;
+
+    // top right bottom left
+    padding: 10px 0px 10px 10px;
+}
+.utensils-text
+{
+    width: 94%;
+    height: 150px;
+    border: none;
+}
+
+.notes
+{
+    grid-area:notes;
+    background-color: rgb(232, 155, 99);
+    color: white;
+
+    border: 3px solid rgb(232, 155, 99);
+    border-radius: 10px;
+
+    // top right bottom left
+    padding: 10px 0px 10px 10px;
+}
+.notes-text
+{
+    width: 94%;
+    height: 250px;
+    border: none;
+    background-color: transparent;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// BUTTONS SECTION ///
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+.buttons-container
+{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    width: 100%;
+
+    margin-top: 5%;
+    margin-bottom: 5%;
+
+    ion-icon
+    {
+        height: 20px;
+        margin-right: 5px;
+    }
+}
+
+ion-button::part(native) 
+{
+    border-radius: 20px;
+}
+
+ion-button
+{
+    font-family: 'Hobo BT', sans-serif;
+    font-size: 1.2em;
+
+    height: 50px;
+    width: 170px;
+
+    --background: rgb(232, 155, 99);
+    --border-radius: 50px;
+    --color: white;
+    --box-shadow: none !important;
+}
+ion-button:active
+{
+    --background: rgb(216, 109, 33);
+}
+
+#editButton
+{
+    --background: rgb(232, 155, 99);
+}
+
+#deleteButton
+{
+    --background: rgb(206, 15, 15);
+}

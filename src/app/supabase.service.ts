@@ -315,5 +315,16 @@ export class SupabaseService
   getRecipesByUser(userId: string) {
     return this.supabase.from('recipes').select('*').eq('user_id', userId);
   }
+
+  async getRecipeById(id: string) 
+  {
+    return this.supabase
+      .from('recipes')
+      .select('*')
+      .eq('id', id)
+      .single();
+  }
+
+
 }
 

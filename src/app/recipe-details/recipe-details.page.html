@@ -1,0 +1,104 @@
+<ion-header [translucent]="true">
+
+</ion-header>
+
+
+<ion-content *ngIf="recipe">
+
+  <div class="backButton" (click)="goBack()">
+    <ion-icon aria-hidden="true" name="arrow-back-outline" style="font-size: 40px;"></ion-icon>
+  </div>
+
+  <!-- ////////////////////////// TOP SECTION ////////////////////////////////////// -->
+
+  <div class="top-section-container">
+
+    <div class="title">
+      <h1 id="recipeName">{{ recipe.recipe_name }}</h1>
+    </div>
+
+    <div class="by author-container">
+
+      <div>
+        <p id="author-label">By:</p>
+      </div>
+
+      <div>
+        <p id="author">{{ recipe.author }}</p>
+      </div>
+
+    </div>
+
+    <div class="photo">
+
+      <img id="dish-pic" [src]="recipe.image_url || '/assets/img/placeholderImg.png'" 
+          class="upload-placeholder"
+          alt="Dish image" />
+
+    </div>
+
+  </div>
+
+  <!-- ////////////////////////// MID-TOP SECTION ////////////////////////////////////// -->
+
+  <div class="info-container">
+
+    <div class="text1" >Prep Time</div>
+    <div class="text2">Cook Time</div>
+    <div class="text3">Serves</div>
+
+    <div class="box1">
+      <p class="info-input">{{ recipe.prep_time }}</p>
+    </div>
+
+    <div class="box2">
+      <p class="info-input">{{ recipe.cook_time }}</p>
+    </div>
+
+    <div class="box3">
+      <p class="info-input">{{ recipe.serves }}</p>
+    </div>
+
+  </div>
+
+  <!-- ////////////////////////// MID-BOTTOM SECTION ////////////////////////////////////// -->
+
+  <div class="ingredients">
+    <h2>Ingredients</h2>
+    <p class="text-area">{{ recipe.ingredients }}</p>
+  </div>
+
+  <!-- ////////////////////////// BOTTOM SECTION ////////////////////////////////////// -->
+
+  <div class="bottom-container">
+
+    <div class="method">
+      <h2>Method</h2>
+      <p class="method-text">{{ recipe.method }}</p>
+    </div>
+
+    <div class="utensils">
+      <h2>Utensils</h2>
+      <p class="utensils-text">{{ recipe.utensils }}</p>
+    </div>
+
+    <div class="notes">
+      <h2>Notes</h2>
+      <p class="notes-text">{{ recipe.notes }}</p>
+    </div>
+
+  </div>
+
+  <div class="buttons-container">
+
+    <div>
+      <ion-button expand="full" id="deleteButton"><ion-icon name="trash"></ion-icon>Delete</ion-button>
+    </div>
+
+    <div>
+      <ion-button expand="full" id="editButton"><ion-icon name="create"></ion-icon>Edit</ion-button>
+    </div>
+
+  </div>
+
+</ion-content>

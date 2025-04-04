@@ -8,6 +8,7 @@ import { SignupPage } from './signup/signup.page';
 import { CreateRecipePage } from './create-recipe/create-recipe.page';
 import { RecipeSelectionModalPage } from './recipe-selection-modal/recipe-selection-modal.page';
 import { AccountPage } from './account/account.page';
+import { RecipeDetailsPage } from './recipe-details/recipe-details.page';
 
 const routes: Routes = [
   {
@@ -40,11 +41,10 @@ const routes: Routes = [
     path: 'account',
     component: AccountPage,
   },
-
-  // {
-  //   path: 'account',
-  //   loadChildren: () => import('./account/account.module').then( m => m.AccountPageModule)
-  // },
+  {
+    path: 'recipe-details/:id',
+    component: RecipeDetailsPage,
+  }
 ];
 @NgModule({
   imports: [

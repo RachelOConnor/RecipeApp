@@ -72,4 +72,8 @@ export class Tab1Page implements OnInit {
     }
   }
 
+  goToRecipeDetails(recipeId: string) {
+    this.router.navigate(['/recipe-details', recipeId]);
+  }
+
 }
