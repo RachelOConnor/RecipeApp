@@ -316,8 +316,10 @@ export class SupabaseService
     return this.supabase.from('recipes').select('*').eq('user_id', userId);
   }
 
+  // get recipe by id
   async getRecipeById(id: string) 
   {
+    // return id based on matching id from table - one result only
     return this.supabase
       .from('recipes')
       .select('*')
@@ -325,6 +327,40 @@ export class SupabaseService
       .single();
   }
 
+  // delete recipe
+  async deleteRecipeById(recipeId: string) 
+  {
+    // delete based on matching id from table
+    const { error } = await this.supabase
+      .from('recipes')
+      .delete()
+      .eq('id', recipeId);
+  
+    return { error };
+  }
 
+// update existing recipe
+  async updateRecipe(recipeId: string, updatedRecipe: any) 
+  {
+    // show id and data of recipe
+    console.log('Updating recipe with ID:', recipeId);
+    console.log('Updated recipe data:', updatedRecipe);
+
+    // update recipe based on matching id from table 
+    const { data, error } = await this.supabase
+      .from('recipes')
+      .update(updatedRecipe)
+      .eq('id', recipeId);
+  
+    // if error, show error
+    if (error) {
+      console.error('Error updating recipe:', error);
+      return { data: null, error };
+    }
+
+    console.log('Updated recipe data returned:', data);
+  
+    return { data, error: null };
+  }
 }
 

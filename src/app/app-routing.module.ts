@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-// import { AuthGuard } from './auth.guard';
+import { AuthGuard } from './auth.guard';
 
 // Page imports
 import { LoginPage } from './login/login.page';
@@ -27,11 +27,16 @@ const routes: Routes = [
   },
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'create-recipe',
-    component: CreateRecipePage,
+    loadComponent: () => import('./create-recipe/create-recipe.page').then(m => m.CreateRecipePage)
+  },
+  {
+    path: 'edit-recipe/:id',
+    loadComponent: () => import('./create-recipe/create-recipe.page').then(m => m.CreateRecipePage)
   },
   {
     path: 'recipe-selection-modal',

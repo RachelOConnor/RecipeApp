@@ -10,7 +10,7 @@
   </div>
 
 
-    <form (ngSubmit)="createRecipe()">
+    <form (ngSubmit)="saveRecipe()">
 
       <!-- ////////////////////////// TOP SECTION ////////////////////////////////////// -->
 
@@ -100,7 +100,9 @@
 
     </div>
 
-    <ion-button expand="full" type="submit" class="submit-button">Create</ion-button>
+    <ion-button expand="full" type="submit" class="submit-button">
+      {{ editMode ? 'Update Recipe' : 'Create Recipe' }}
+    </ion-button>
 
     </form>
 
