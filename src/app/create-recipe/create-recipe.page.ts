@@ -130,7 +130,7 @@ export class CreateRecipePage implements OnInit {
       return;
     }
 
-    let imageUrl = '';
+    let imageUrl = this.imagePreview;
 
     // if file selected
     if (this.imageFile) 
