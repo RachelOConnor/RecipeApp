@@ -29,7 +29,14 @@ ion-content
 .ion-padding
 {
     text-align: center;
-    margin-top: 10%;
+    margin-top: -10%;
+}
+
+.backButton
+{
+    padding-left: 5%;
+    color: rgb(232, 155, 99);
+    padding-top: 20px;
 }
 
 h1

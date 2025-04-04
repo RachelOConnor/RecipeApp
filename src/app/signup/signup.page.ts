@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { SupabaseService } from '../supabase.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-signup',
@@ -26,8 +27,16 @@ export class SignupPage
   imageFile: File | null = null; 
   imagePreview: string | null = null;
 
-  constructor(private supabaseService: SupabaseService, private router: Router) {}
+  constructor(
+    private supabaseService: SupabaseService, 
+    private router: Router,
+    private navCtrl: NavController,
+  ) {}
   
+  goBack() {
+    this.navCtrl.back();
+  }
+
   // If image has been selected
   onImageSelected(event: any) 
   {

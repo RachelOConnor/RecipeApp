@@ -4,11 +4,16 @@
 
   <div id="border">
 
+    <div class="backButton" (click)="goBack()">
+      <ion-icon aria-hidden="true" name="arrow-back-outline" style="font-size: 40px;"></ion-icon>
+    </div>
+
     <div class="ion-padding">
       <h1>Sign In</h1>
     </div>
 
     <div id="margined">
+
       <form (ngSubmit)="signup()" #signupForm="ngForm">
         
         <!-- Profile Picture -->
