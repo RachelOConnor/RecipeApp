@@ -57,7 +57,7 @@ ion-input
 
     padding-left: 5% !important;
 
-    --color: rgb(216, 109, 33);
+    --color: rgb(201, 93, 16);
 }
 
 ion-label
@@ -98,7 +98,7 @@ ion-button::part(native)
 }
 .signUp:active
 {
-    --color: rgb(216, 109, 33);
+    --background: rgb(201, 93, 16);
 }
 
 .upload-placeholder

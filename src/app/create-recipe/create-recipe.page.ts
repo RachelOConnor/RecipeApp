@@ -60,7 +60,7 @@ export class CreateRecipePage implements OnInit {
   }
 
   async createRecipe() {
-    if (!this.recipeName || !this.ingredients || !this.method) {
+    if (!this.recipeName || !this.author || !this.ingredients || !this.method) {
 
       console.error("Please fill out all required fields.");
       return;

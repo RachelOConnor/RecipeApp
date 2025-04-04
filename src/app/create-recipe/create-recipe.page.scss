@@ -215,6 +215,7 @@ label
     padding-bottom: 5%;
     color: rgb(232, 155, 99);
     text-align: center;
+    background-color: rgb(255, 255, 255);
 }
 .info-input:focus
 {
@@ -245,6 +246,7 @@ label
     width: 97%;
     height: 90px;
     border: none;
+    background-color: white;
 }
 
 .text-area:focus
@@ -265,7 +267,7 @@ h2
 .method
 {
     grid-area:method;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     color: rgb(232, 155, 99);
 
     border: 3px solid rgb(232, 155, 99);
@@ -279,6 +281,7 @@ h2
     width: 97%;
     height: 450px;
     border: none;
+    background-color: white;
 }
 .method-text:focus
 {
@@ -302,6 +305,7 @@ h2
     width: 94%;
     height: 150px;
     border: none;
+    background-color: white;
 }
 .utensils-text:focus
 {
