@@ -11,6 +11,7 @@ import { SupabaseService } from '../supabase.service';
 export class Tab1Page implements OnInit {
 
   recipes: any[] = [];
+  searchTerm: string = '';
 
   constructor(
     private supabaseService: SupabaseService,
@@ -49,6 +50,13 @@ export class Tab1Page implements OnInit {
     {
       console.log('No user found');
     }
+  }
+
+  get filteredRecipes() 
+  {
+    return this.recipes.filter(recipe =>
+      recipe.recipe_name.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
   }
 
   async ngOnInit() {
