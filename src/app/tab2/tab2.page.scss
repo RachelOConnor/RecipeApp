@@ -37,7 +37,8 @@ ion-title
 
 ion-list
 {
-    border: 3px solid rgb(232, 155, 99);
+    margin-top: 0;
+    padding-top: 0;
 }
 
 .category
@@ -61,9 +62,6 @@ ion-icon[name="trash"]
     font-size: 22px;
 }
 
-
-//! - Icon not centered
-
 ion-icon[name="add-circle"] 
 {
     color: white;
@@ -73,11 +71,7 @@ ion-icon[name="add-circle"]
     color: rgb(232, 155, 99);
 }
 
-//! - Icon not centered
-
-
-
-/* Remove default checkbox styles */
+/* remove default checkbox styles */
 ion-checkbox 
 {
     --size: 25px;
@@ -87,10 +81,10 @@ ion-checkbox
     --checkbox-border-checked: rgb(232, 155, 99);
 }
 
-/* Main Category button */
 ion-item[button] 
 {
     --background: #faf3e1;
+    border-bottom: 1px solid rgb(232, 155, 99);
 }
 
 ion-item[button] ion-label 
@@ -98,6 +92,9 @@ ion-item[button] ion-label
     color: rgb(232, 155, 99);
     font-family: 'Hobo BT', sans-serif !important;
     margin-left: 10px;
+    font-size: 1.2em;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
 .button-container 
@@ -158,15 +155,19 @@ ion-item[button] ion-label
     {
         margin-right: 0px;
         padding-right: 0px;
+        margin-right: 10px;
         max-width: 10%;
     }
 }
 
+ion-checkbox.checkbox-checked {
+    --border-color-checked: rgb(232, 155, 99) !important;
+}
+
+
 
 
 //! NOT WORKING !//
-
-//! - Border on checkmark still blue
 //! - Gap under list border
 
 

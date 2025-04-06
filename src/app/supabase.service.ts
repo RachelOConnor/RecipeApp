@@ -12,6 +12,15 @@ export interface Profile {
   cooking_skill_level: string
 }
 
+export interface ShoppingItem {
+  id?: string;
+  user_id?: string;
+  name: string;
+  quantity: number;
+  category: string;
+  checked: boolean;
+}
+
 
 @Injectable({
   providedIn: 'root'
@@ -362,5 +371,96 @@ export class SupabaseService
   
     return { data, error: null };
   }
+
+  ////////! SHOPPING LIST FUNCTIONS /////////
+
+  // get all of user's items
+async getShoppingItems(): Promise<ShoppingItem[] | null> 
+{
+  // get user first
+  const user = await this.getUser();
+  // if no user, nothing
+  if (!user) return null;
+
+  // get items from table based on user id
+  const { data, error } = await this.supabase
+    .from('shopping_items')
+    .select('*')
+    .eq('user_id', user.id);
+
+  // if error, show
+  if (error) 
+  {
+    console.error('Error fetching shopping items:', error.message);
+    return null;
+  }
+  // return items / null
+  return data;
+}
+
+// add to shopping list
+async addShoppingItem(item: ShoppingItem) 
+{
+  // get user
+  const user = await this.getUser();
+  // if none, say so
+  if (!user) return { data: null, error: 'User not logged in' };
+
+  // insert to row of matching id
+  const { data, error } = await this.supabase
+    .from('shopping_items')
+    .insert([{ ...item, user_id: user.id }])
+    .select()
+    .single();
+
+  // if error, show
+  if (error) 
+  {
+    console.error('Error adding item:', error.message);
+    return { data: null, error };
+  }
+
+  return { data, error: null };
+}
+
+// delete item
+async deleteShoppingItem(itemId: string) 
+{
+  // get items by id and delete
+  const { error } = await this.supabase
+    .from('shopping_items')
+    .delete()
+    .eq('id', itemId);
+
+  // if error, show
+  if (error) 
+  {
+    console.error('Error deleting item:', error.message);
+  }
+
+  return { error };
+}
+
+// update item - check it off
+async updateShoppingItem(item: ShoppingItem) 
+{
+  // if no item, show error
+  if (!item.id) return { error: 'No ID provided', data: null };
+
+  // get items based on id and check off
+  const { data, error } = await this.supabase
+    .from('shopping_items')
+    .update({ checked: item.checked })
+    .eq('id', item.id);
+
+  // if error, show
+  if (error) 
+  {
+    console.error('Error updating item:', error.message);
+  }
+
+  return { data, error };
+}
+
 }
 
