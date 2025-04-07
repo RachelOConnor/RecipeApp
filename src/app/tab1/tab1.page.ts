@@ -25,22 +25,29 @@ export class Tab1Page implements OnInit {
     this.router.navigate(['/account']);
   }
 
+  // load recipes on view
   ionViewWillEnter() {
     this.loadRecipes();
   }
 
-  async loadRecipes() {
+  // load recipes
+  async loadRecipes() 
+  {
     const user = await this.supabaseService.user;  // Get the current user
     console.log('User ID:', user ? user.id : 'No user logged in');
 
+    // if user found
     if (user) 
-      {
+    {
+      // get their recipes
       const { data, error } = await this.supabaseService.getRecipesByUser(user.id);
 
+      // if error, show
       if (error) 
       {
         console.error('Error fetching recipes:', error);
-      } else 
+      } 
+      else 
       {
         console.log('Fetched recipes:', data);
         this.recipes = data;
@@ -52,34 +59,56 @@ export class Tab1Page implements OnInit {
     }
   }
 
+  // filter recipes by search
   get filteredRecipes() 
   {
+    // convert everything to lowercase - easier to search
     return this.recipes.filter(recipe =>
       recipe.recipe_name.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
   }
 
-  async ngOnInit() {
+  // on init
+  async ngOnInit() 
+  {
+    // get user
     const user = await this.supabaseService.user;
-    if (user) {
+
+    // if user found, show their recipes
+    if (user) 
+    {
       this.loadRecipes();
     }
   }
 
-  getTotalTimeFormatted(recipe: any): string {
+  // show total time of prep and cooking
+  getTotalTimeFormatted(recipe: any): string 
+  {
+    // combine to one time
     const totalMinutes = Number(recipe.prep_time) + Number(recipe.cook_time);
+    // get hours if possible
     const hours = Math.floor(totalMinutes / 60);
+    // remainder is minutes
     const minutes = totalMinutes % 60;
   
-    if (hours > 0 && minutes > 0) {
+    // if hours and mins available, show
+    if (hours > 0 && minutes > 0) 
+    {
       return `${hours}h ${minutes}m`;
-    } else if (hours > 0) {
+    } 
+    // just hours
+    else if (hours > 0) 
+    {
       return `${hours}h`;
-    } else {
+    } 
+    // just mins
+    else 
+    {
       return `${minutes}m`;
     }
   }
 
+  // view recipe on click
   goToRecipeDetails(recipeId: string) {
     this.router.navigate(['/recipe-details', recipeId]);
   }
