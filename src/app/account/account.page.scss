@@ -146,6 +146,11 @@ ion-button::part(native)
 .logOut
 {
     width: 40%;
+    background-color: rgb(206, 15, 15) !important;
+}
+.logOut::part(native)
+{
+    background-color: rgb(206, 15, 15) !important;
 }
 
 ion-select
