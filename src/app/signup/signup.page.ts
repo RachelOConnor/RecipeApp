@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { SupabaseService } from '../supabase.service';
+import { AuthStateService } from '../auth-state.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NavController } from '@ionic/angular';
@@ -29,6 +30,7 @@ export class SignupPage
 
   constructor(
     private supabaseService: SupabaseService, 
+    private authStateService: AuthStateService,
     private router: Router,
     private navCtrl: NavController,
   ) {}
@@ -112,15 +114,14 @@ export class SignupPage
     }
 
 // Sign up
-  async signup() 
-  {
-    try 
-    {
+  async signup() {
+    try {
       const { user, error } = await this.supabaseService.signUp(this.email, this.password);
 
-      if (error) 
-      {
+      if (error) {
         console.error('Error signing up:', error);
+        this.errorMessage = error;
+        return;
       }
 
       if (user) {
@@ -133,11 +134,10 @@ export class SignupPage
           this.imageUrl || '',
           this.cookingSkillLevel
         );
-        this.router.navigate(['/tabs']);
 
-        if (profile) 
-        {
-          // Redirect to homr
+        if (profile) {
+          // The AuthStateService will automatically update the auth state
+          // Redirect to main app
           this.router.navigate(['/tabs']);
         } else {
           console.error('Error creating profile');

@@ -37,7 +37,17 @@ export class SupabaseService
   {
     const supabaseUrl = 'https://mdqsggfygmfryusfsztz.supabase.co';
     const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1kcXNnZ2Z5Z21mcnl1c2ZzenR6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM1NzM5NTEsImV4cCI6MjA1OTE0OTk1MX0.Vhz9Gwp27zRQgeKN54hzd1nY5NWOTp-nc4DkMDdOjZw';
-    this.supabase = createClient(supabaseUrl, supabaseKey);
+    this.supabase = createClient(supabaseUrl, supabaseKey, {
+      auth: {
+        persistSession: true,
+        storageKey: 'recipe-app-auth'
+      }
+    });
+  }
+
+  // Getter for supabase client
+  get supabaseClient() {
+    return this.supabase;
   }
 
   get user() {

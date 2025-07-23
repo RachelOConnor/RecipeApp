@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { Router } from '@angular/router';
 import { Profile, SupabaseService } from '../supabase.service';
+import { AuthStateService } from '../auth-state.service';
 
 @Component({
   selector: 'app-account',
@@ -29,6 +30,7 @@ export class AccountPage implements OnInit {
 
   constructor(
     private readonly supabase: SupabaseService,
+    private authStateService: AuthStateService,
     private router: Router
   ) { }
 
@@ -155,7 +157,8 @@ export class AccountPage implements OnInit {
   async signOut() {
     console.log('signed out')
     await this.supabase.signOut()
-    this.router.navigate(['/'], { replaceUrl: true })
+    // The AuthStateService will automatically update the auth state
+    this.router.navigate(['/login'], { replaceUrl: true })
   }
 
   goToTab1() {

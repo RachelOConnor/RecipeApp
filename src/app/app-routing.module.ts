@@ -13,7 +13,7 @@ import { RecipeDetailsPage } from './recipe-details/recipe-details.page';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/login', 
+    redirectTo: '/tabs', 
     pathMatch: 'full'
   },
   {
