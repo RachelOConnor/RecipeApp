@@ -35,10 +35,14 @@ export class Tab3Page implements OnInit {
   async loadUserRecipes() 
   {
     const user = await this.supabaseService.getUser();
+
+    // if user found
     if (user) 
-      {
+    {
+        // get their recipes
       const { data, error } = await this.supabaseService.getRecipesByUser(user.id);
 
+      // if error, show
       if (error) 
       {
         console.error('Error fetching recipes:', error);
@@ -51,7 +55,9 @@ export class Tab3Page implements OnInit {
   }
 
   // Open new temporary page on click
-  async openRecipeModal(day: string, meal: string) {
+  async openRecipeModal(day: string, meal: string) 
+  {
+    // create popup to choose meal for that time and day
     const modal = await this.modalController.create({
       component: RecipeSelectionModalPage,
       componentProps: {
@@ -69,14 +75,17 @@ export class Tab3Page implements OnInit {
         const selectedRecipe = result.data.selectedRecipe;
         const info = `${day}-${meal}`; // shortcut kinda
 
+        // let selected recipe = that day and that meal
         this.selectedRecipes[day] = this.selectedRecipes[day] || {};
         this.selectedRecipes[day][meal] = selectedRecipe;
 
+        // return image and name of recipe if possible to display
         this.selectedRecipeImage[info] = selectedRecipe.image_url || 'https://ionicframework.com/docs/img/demos/card-media.png';
         this.selectedRecipeName[info] = selectedRecipe.recipe_name || 'Unknown Recipe';
       }
     });
 
+    // show modal
     return await modal.present();
   }
 
@@ -85,6 +94,7 @@ export class Tab3Page implements OnInit {
   {
     const info = `${day}-${meal}`;
 
+    // remove image and name
     this.selectedRecipeImage[info] = '';
     this.selectedRecipeName[info] = '';
   }

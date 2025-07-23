@@ -50,18 +50,27 @@ export class SupabaseService
     return this.supabase;
   }
 
+  // get user
   get user() {
     return this.supabase.auth.getUser().then(({ data }) => data?.user)
   }
 
-  async getProfile(): Promise<Profile | null> {
-    try {
+  // get profile 
+  async getProfile(): Promise<Profile | null> 
+  {
+    try 
+    {
+      // get user
       const user = await this.user;
-      if (!user?.id) {
+
+      // if no user id found
+      if (!user?.id) 
+      {
         console.error('User ID not found');
         return null;
       }
   
+      // get info from table
       const { data, error } = await this.supabase
         .from('profiles')
         .select(`
@@ -73,28 +82,40 @@ export class SupabaseService
         cooking_skill_level
         `)
         .eq('id', user.id)
-        .single();  // Ensure we get only one profile
+        .single();
   
-      if (error) {
+        // if error, showw
+      if (error) 
+      {
         console.error('Error fetching profile:', error.message);
         return null;
       }
   
-      if (!data) {
+      // if no data, show error
+      if (!data) 
+      {
         console.warn('No profile data found');
         return null;
       }
   
-      return data as Profile; // Ensure TypeScript treats it correctly
-    } catch (error: any) {
+      return data as Profile;
+
+    }
+    catch (error: any) 
+    {
       console.error('Unexpected error fetching profile:', error.message);
       return null;
     }
   }
 
-  async updateProfile(profile: Profile) {
+  // update profile
+  async updateProfile(profile: Profile) 
+  {
     const user = await this.user
-    const update = {
+
+    // update profile table with new info, update time
+    const update = 
+    {
       ...profile,
       id: user?.id,
       updated_at: new Date(),
@@ -102,11 +123,13 @@ export class SupabaseService
     return this.supabase.from('profiles').upsert(update)
   }
 
-  createLoader() {
+  createLoader() 
+  {
     return this.loadingCtrl.create()
   }
 
-  async createNotice(message: string) {
+  async createNotice(message: string) 
+  {
     const toast = await this.toastCtrl.create({ message, duration: 5000 })
     await toast.present()
   }
@@ -170,12 +193,14 @@ export class SupabaseService
     }
   }
 
+  // delete files from bucket in supabase
   async deleteFileFromBucket(bucket: string, fileName: string) 
   {
     const { error } = await this.supabase.storage.from(bucket).remove([fileName]);
     return { error };
   }
 
+  // create new profile
   async createProfile(
     userId: string,
     firstName: string,
@@ -213,7 +238,6 @@ export class SupabaseService
       throw error;
     }
   }
-
 
   // Sign in
   async signIn(email: string, password: string) 
@@ -253,7 +277,9 @@ export class SupabaseService
       // Get current user if logged in
       const { data, error } = await this.supabase.auth.getUser();
 
-      if (error) {
+      // if error, show
+      if (error) 
+      {
         console.error('Error getting user:', error.message);
         return null;
       }
@@ -266,72 +292,93 @@ export class SupabaseService
   {
     const { data, error } = await this.supabase.auth.getSession();
 
+    // if error, show
     if (error) 
       {
       console.error('Error getting session:', error.message);
       return null;
     }
 
-    return data?.session;  // Returns session or null
+    return data?.session;
   }
 
-
-
-
+  // upload image
   async uploadImage(filePath: string, file: File): Promise<string | null> {
-    try {
+    try 
+    {
       console.log('Uploading file to path:', filePath);
 
+      // upload to recipes bucket
       const { data, error } = await this.supabase.storage
         .from('recipes')
         .upload(filePath, file, { upsert: true });
 
-  
-      if (error) {
+      // if error, show
+      if (error) 
+      {
         console.error('Upload error:', error.message);
         return null;
       }
 
+      // uplpad url
       const { data: publicUrlData } = this.supabase.storage
       .from('recipes')
       .getPublicUrl(filePath);
   
       return publicUrlData.publicUrl;
-    } catch (error) {
+    } 
+    catch (error) 
+    {
       console.error('Unexpected upload error:', error);
       return null;
     }
   }
 
-  async createRecipe(recipe: any) {
+    ////////! CREATE RECIPE FUNCTIONS /////////
+
+  // create recipe
+  async createRecipe(recipe: any) 
+  {
+    // upload to recipes table
     const { data, error } = await this.supabase
       .from('recipes')
-      .insert([recipe]);  // Insert a new recipe
+      .insert([recipe]);
     
-      if (error) {
-        return { data: null, error };  // Return error if it occurs
+      // if error, show error w data
+      if (error) 
+      {
+        return { data: null, error };
       }
-      return { data, error: null };  // Return data if successful
+      return { data, error: null };
     }
 
-    async getUser() {
-      const { data, error } = await this.supabase.auth.getUser();
-      return data?.user || null;
-    }
+  // get user
+  async getUser() 
+  {
+    const { data, error } = await this.supabase.auth.getUser();
+    return data?.user || null;
+  }
 
-  async getUserRecipes(userId: string) {
+  // get existing recipes
+  async getUserRecipes(userId: string) 
+  {
+    // get data from recipes table based on id
     const { data, error } = await this.supabase
       .from('recipes')
       .select('*')
       .eq('user_id', userId);
 
-    if (error) {
+    // if error, show
+    if (error) 
+    {
       throw new Error('Failed to load recipes: ' + error.message);
     }
     return data;
   }
 
-  getRecipesByUser(userId: string) {
+  // get recipes based on user
+  getRecipesByUser(userId: string) 
+  {
     return this.supabase.from('recipes').select('*').eq('user_id', userId);
   }
 
@@ -471,6 +518,5 @@ async updateShoppingItem(item: ShoppingItem)
 
   return { data, error };
 }
-
 }
 

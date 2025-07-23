@@ -10,6 +10,7 @@ ion-title
     color: white;
     font-size: 3em;
     text-align: center;
+    padding-top: 7%;
 }
 
 .backButton
@@ -145,6 +146,11 @@ ion-button::part(native)
 .logOut
 {
     width: 40%;
+    background-color: rgb(206, 15, 15) !important;
+}
+.logOut::part(native)
+{
+    background-color: rgb(206, 15, 15) !important;
 }
 
 ion-select

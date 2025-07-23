@@ -42,16 +42,30 @@ export class RecipeSelectionModalPage implements OnInit {
     this.modalController.dismiss({ selectedRecipe: recipe });
   }
 
-  getTotalTimeFormatted(recipe: any): string {
+  // get total time of prep and cooking - display as one
+  getTotalTimeFormatted(recipe: any): string
+  {
+    // get numbers of both
     const totalMinutes = Number(recipe.prep_time) + Number(recipe.cook_time);
+
+    // divide into hours
     const hours = Math.floor(totalMinutes / 60);
+    // remainder as minutes
     const minutes = totalMinutes % 60;
   
-    if (hours > 0 && minutes > 0) {
+    // if there are hours AND minutes involved
+    if (hours > 0 && minutes > 0) 
+    {
       return `${hours}h ${minutes}m`;
-    } else if (hours > 0) {
+    } 
+    // just hours no minutes
+    else if (hours > 0) 
+    {
       return `${hours}h`;
-    } else {
+    }
+    // just minutes no hours
+    else 
+    {
       return `${minutes}m`;
     }
   }

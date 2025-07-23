@@ -44,8 +44,9 @@ export class SignupPage
   {
     const file: File = event.target.files[0];
 
+    // if file selected
     if (file) 
-      {
+    {
       this.imageFile = file;
 
       // Preview image
@@ -65,15 +66,18 @@ export class SignupPage
   // Upload image to Supabase
   async uploadImage(file: File) 
   {
+    // upload pfp to avatars bucket
     const fileName = `${Date.now()}_${file.name}`;
     const { data, error } = await this.supabaseService.uploadFileToBucket('avatars', fileName, file);
 
+    // if error, show
     if (error) 
     {
       console.error('Error uploading image:', error);
       return;
     }
 
+    // if no data found, show error
     if (!data?.path) 
     {
       console.error('No file path returned from upload');
@@ -83,6 +87,7 @@ export class SignupPage
     // Generate URL for image
     const result = this.supabaseService.getFilePublicUrl('avatars', data.path);
 
+    // if error, show
     if (result.error) 
     {
       console.error('Error generating public URL:', result.error);
@@ -92,26 +97,30 @@ export class SignupPage
     this.imageUrl = result.publicUrl || null;
   }
 
-    // Delete the image from Supabase
-    async deleteImage() 
+  // Delete the image from Supabase
+  async deleteImage() 
+  {
+    // if no image found, leave
+    if (!this.imageUrl) return;
+
+    // get url without full file address - just actual file name
+    const fileName = this.imageUrl.split('/').pop();
+
+    // delete from avatar bucket
+    const { error } = await this.supabaseService.deleteFileFromBucket('avatars', fileName || '');
+
+    // if error, show
+    if (error) 
     {
-      if (!this.imageUrl) return;
-  
-      const fileName = this.imageUrl.split('/').pop();
-  
-      const { error } = await this.supabaseService.deleteFileFromBucket('avatars', fileName || '');
-  
-      if (error) 
-      {
-        console.error('Error deleting image:', error);
-        return;
-      }
-  
-      // Clear all image related stuff
-      this.imageUrl = null;
-      this.imagePreview = null;
-      this.imageFile = null;
+      console.error('Error deleting image:', error);
+      return;
     }
+
+    // Clear all image related stuff
+    this.imageUrl = null;
+    this.imagePreview = null;
+    this.imageFile = null;
+  }
 
 // Sign up
   async signup() {
