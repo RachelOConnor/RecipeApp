@@ -69,6 +69,8 @@ ion-content
 {
     border-bottom: 2px dashed rgb(232, 155, 99);
     font-size: 1.3em;
+    min-height: 1.5em; 
+    line-height: 1.5em; 
 }
 
 #author-label
@@ -208,6 +210,7 @@ h2
     grid-template-areas:
     'method utensils'
     'method notes';
+    grid-template-columns: 1fr 1fr; 
 
     gap: 3px;
     margin-top: 10px;

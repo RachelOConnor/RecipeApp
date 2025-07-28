@@ -139,6 +139,8 @@ export class AccountPage implements OnInit {
     }
 
     this.profile.profile_picture = result.publicUrl || "";
+    // Update the global profile picture
+    this.authStateService.updateProfilePicture(this.profile.profile_picture);
   }
 
   // Remove the image
@@ -161,6 +163,8 @@ export class AccountPage implements OnInit {
     // return to null
     this.profile.profile_picture = '';
     this.imagePreview = null;
+    // Update the global profile picture
+    this.authStateService.updateProfilePicture(null);
   }
 
   // update profile
@@ -179,6 +183,9 @@ export class AccountPage implements OnInit {
       {
         throw error;
       }
+
+      // Update the global profile picture
+      this.authStateService.updateProfilePicture(this.profile.profile_picture);
 
       // close editing page, show success
       await loader.dismiss();

@@ -1,15 +1,17 @@
-import { Component, OnInit  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SupabaseService } from '../supabase.service';
-import { ModalController } from '@ionic/angular'; 
-
+import { ModalController } from '@ionic/angular';
 import { RecipeSelectionModalPage } from '../recipe-selection-modal/recipe-selection-modal.page';
 
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss'],
-  standalone: false,
+  standalone: false
 })
 export class Tab3Page implements OnInit {
 
@@ -23,12 +25,9 @@ export class Tab3Page implements OnInit {
     private supabaseService: SupabaseService,
     private modalController: ModalController) {}
 
-  ngOnInit() {
-    this.loadUserRecipes();
-  }
-
-  goToAccountPage() {
-    this.router.navigate(['/account']);
+  // load meal planner on view
+  async ngOnInit() {
+    await this.loadUserRecipes();
   }
 
   // Get recipes of user

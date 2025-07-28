@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SupabaseService } from '../supabase.service';
 
@@ -6,7 +9,7 @@ import { SupabaseService } from '../supabase.service';
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss'],
-  standalone: false,
+  standalone: false
 })
 export class Tab1Page implements OnInit {
 
@@ -19,10 +22,6 @@ export class Tab1Page implements OnInit {
 
   goToCreateRecipe() {
     this.router.navigate(['/create-recipe']);
-  }
-
-  goToAccountPage() {
-    this.router.navigate(['/account']);
   }
 
   // load recipes on view

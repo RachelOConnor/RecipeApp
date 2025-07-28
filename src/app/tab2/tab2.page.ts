@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SupabaseService, ShoppingItem } from '../supabase.service';
 import { AlertController } from '@ionic/angular';
-import { Router } from '@angular/router';
 import { ChangeDetectorRef } from '@angular/core';
 
 type Category =
@@ -21,7 +24,7 @@ type Category =
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss'],
-  standalone: false,
+  standalone: false
 })
 
 export class Tab2Page implements OnInit
@@ -229,10 +232,5 @@ export class Tab2Page implements OnInit
     return value as Category;
   }
 
-  goToAccountPage() 
-  {
-    this.router.navigate(['/account']);
-  }
-  
 
 }
